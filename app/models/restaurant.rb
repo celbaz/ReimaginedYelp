@@ -1,4 +1,3 @@
-require 'geocoder'
 class Restaurant < ActiveRecord::Base
   validates :name, :food_inspection, presence: true
   validates :cuisine, :user_id, :street, :zipcode, :city, :state, presence: true
