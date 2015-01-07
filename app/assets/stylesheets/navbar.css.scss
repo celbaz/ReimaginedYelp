@@ -1,0 +1,46 @@
+
+.header {
+  background: #e74c3c;
+  color: #eee;
+  font-weight: 300;
+  opacity: 50%;
+}
+
+.header-list {
+
+  float: right;
+}
+
+.header-logo {
+  float: left;
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+}
+
+.sign-in {
+  float : left;
+  padding: 10px;
+  margin: 12px;
+  border-radius: 15px;
+  border: 1px solid #eee;
+}
+
+.sign-in:hover {
+  background: #2ecc71;
+  transition: 1s;
+}
+
+.sign-out:hover {
+  background: #2c3e50;
+  transition: 1s;
+}
+// do the transition out later
+
+.sign-out {
+  float : left;
+  padding: 10px;
+  margin: 12px;
+  border-radius: 15px;
+  border: 1px solid #eee;
+}

@@ -1,0 +1,16 @@
+<header class='header group'>
+  <nav class="header-nav group">
+    <h1 class="header-logo group">
+      <a href="#">Yelp Re-Imagined</a>
+    </h1>
+
+    <ul class="header-list group">
+      <% if signed_in? %>
+      <li class="sign-out"><%= link_to "Sign Out", session_url, :method => :delete %></li>
+      <% else %>
+      <li class="sign-in"><%= link_to "Sign In", new_session_url %></li>
+      <li class="sign-in"><%= link_to "Sign Up", new_user_url %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

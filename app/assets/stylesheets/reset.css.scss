@@ -1,0 +1,37 @@
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, div, h2, p, form,
+fieldset, label,
+span, footer, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: "Merriweather", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: #eee;
+}
+
+/* Clearfix */
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
