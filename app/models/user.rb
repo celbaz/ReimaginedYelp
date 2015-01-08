@@ -2,6 +2,15 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6 , allow_nil: true}
 
+  has_many :restaurants,
+    class_name: "Restaurant",
+    foreign_key: :place_id,
+    primary_key: :id
+
+  has_many :user,
+    class_name: "Review",
+    foreign_key: :user_id,
+    primary_key: :id
 
   attr_reader :password
   after_initialize :ensure_session_token

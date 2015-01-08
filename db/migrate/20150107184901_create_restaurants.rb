@@ -11,7 +11,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string  :city, null: false
       t.string  :state, null:false
       t.integer :phone_number
-      t.integer :cuisine, null: false
+      t.string :cuisine, null: false
       t.timestamps
     end
   end

@@ -1,0 +1,9 @@
+<h2>An Active Record of all the existing restaurants in the Universe</h2>
+<% @places.each do |p| %>
+<p>
+  <a href="<%= restaurant_url(p) %>"><%= p.name %></a>
+  <%= button_to "Delete", restaurant_url(p), method: :delete %>
+  <%= link_to "Edit", edit_restaurant_url(p) %>
+</p>
+
+<% end %>

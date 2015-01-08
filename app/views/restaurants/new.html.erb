@@ -1,0 +1,29 @@
+<form id="form_id" action="<%= restaurants_url %>" method="post">
+  <%= auth_token_input %>
+
+  <label>Restaurant Name:
+    <input type="text" name="place[name]" value="<%= @place.name %>">
+  </label>
+  <label>Restaurant Inspection:
+      <input type="text" name="place[food_inspection]" value="<%= @place.food_inspection %>">
+    </label>
+  <label>Cuisine:
+    <input type="text" name="place[cuisine]" value="<%= @place.cuisine %>">
+  </label>
+  <label>Street:
+    <input type="address" name="place[street]" value="<%= @place.street %>">
+   </label>
+  <label>City:
+    <input type="text" name="place[city]" value="<%= @place.city %>">
+  </label>
+  <label>State:
+    <input type="text" name="place[state]" value="<%= @place.state %>">
+  </label>
+  <label>Zipcode:
+    <input type="text" name="place[zipcode]" value="<%= @place.zipcode %>">
+  </label>
+  <label>Restaurant Phone Number:
+    <input type="text" name="place[phone_number]" value="<%= @place.phone_number%>">
+  </label>
+  <input type="submit" name="some_name" value="Create Restaurant">
+</form>

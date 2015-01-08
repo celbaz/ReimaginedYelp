@@ -33,7 +33,7 @@
 
 .sign-out:hover {
   background: #2c3e50;
-  transition: 1s;
+  transition: 1.5s;
 }
 // do the transition out later
 
@@ -41,6 +41,7 @@
   float: left;
   padding: 10px;
   margin: 12px;
+  margin-right: 20px;
   border-radius: 15px;
   border: 1px solid #eee;
 }
