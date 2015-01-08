@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150108000753) do
     t.string   "title"
     t.integer  "user_id",    null: false
     t.integer  "place_id"
-    t.integer  "rating",     null: false
+    t.string   "rating",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

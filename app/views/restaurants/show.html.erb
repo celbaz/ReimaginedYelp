@@ -1,1 +1,12 @@
 <h2><%= @place.name %></h2>
+
+<h2> Reviews</h2>
+<% @place.reviews.each do |r| %>
+<p>
+  <%= r.body %>
+  <% if r.user_id == current_user.id %>
+  <%= button_to "Delete", review_url(r), method: :delete %>
+  <% end %>
+</p>
+<% end %>
+<%= render "reviews/form", {place: @place} %>

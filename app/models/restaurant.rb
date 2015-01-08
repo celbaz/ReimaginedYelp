@@ -9,13 +9,13 @@ class Restaurant < ActiveRecord::Base
     primary_key: :id
 
   has_many :reviews,
-    class_name: "Restaurant",
+    class_name: "Review",
     foreign_key: :place_id,
     primary_key: :id
 
   geocoded_by :address
   after_validation :geocode
-  
+
   def address
     "#{self.street} #{self.city} #{self.state} #{self.zipcode} U.S.A."
   end

@@ -1,0 +1,16 @@
+<form id="form_id" action="<%= reviews_url %>" method="post">
+  <%= auth_token_input %>
+
+  <input type="hidden" name="review[user_id]" value="<%= current_user.id %>">
+  <input type="hidden" name="review[place_id]" value="<%= place.id %>">
+  <label> Title (optional):
+    <input type="text" name="review[title]" value="">
+  </label>
+  <label> Body (required):
+    <input type="text" name="review[body]" value="">
+  </label>
+  <label> rating (1-5):
+    <input type="text" name="review[rating]" value="">
+  </label>
+  <input type="submit" name="some_name" value="Add Review">
+</form>

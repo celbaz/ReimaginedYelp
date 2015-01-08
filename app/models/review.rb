@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
-  validates :title, :body, :user_id, :place_id,  presence: true
-  validates :rating, inclusion: ["1","2","3", "4", "5"]
+  validates :body, :user_id, :place_id,  presence: true
+  # validates :rating, inclusion: ["1","2","3", "4", "5"]
 
   belongs_to :user,
     class_name: "User",
