@@ -6,13 +6,12 @@ class RestaurantsController < ApplicationController
     end
 
     def edit
-      @place = Restaurant.find_by_id(params[:id])
+      @place = Restaurant.find(params[:id])
       render :edit
     end
 
     def create
-      @place = Restaurant.new(place_params)
-      @place.user_id = current_user.id
+      @place = current_user.restaurants.new(place_params)
 
       if @place.save
         redirect_to user_url(current_user)
