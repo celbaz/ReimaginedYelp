@@ -1,7 +1,8 @@
-.hero {
+#landing {
+  position: absolute;
   width: 100%;
-  z-index: -1;
-  height: 700px;
+  top: 66px;
+  bottom: 0px;
   background-image: image-url("temp_back2.jpg");
   background-size: cover;
 }
@@ -11,22 +12,21 @@
   bottom: 0px;
   height: 250px;
   width: 100%;
-  background: #eee;
+  background: rgba(255,255,255,0.8);
   float: left;
-  opacity: 50%;
 }
 
 .info-sec {
   float: right;
-  width: 33%;
+  width: 25%;
   border-right: 1px solid black;
   height: inherit;
+  padding: 25px;
 
 }
 
 .info-sec p {
   text-align: center;
   margin-top: 25px;
-  font-weight: 300;
-  color: black
+  font-weight: 300 bold;
 }

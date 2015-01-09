@@ -4,7 +4,7 @@ window.YelpClone = {
   Views: {},
   Routers: {},
   initialize: function() {
-    console.log('Hello from Backbone!');
+    YelpClone.places = new YelpClone.Collections.Restaurants();
     new YelpClone.Routers.Router({
       $rootEl : $("#content"),
       $footerEl : $("#footer")

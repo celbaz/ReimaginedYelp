@@ -5,15 +5,24 @@ YelpClone.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    '': "landingPage"
+    '': "landingPage",
+    'restaurants/': "riPage"
     // 'user/:id': userPage,
     // 'search/map': searchMap,
     // 'search/list': searchMap,
     // 'sentence' if time permits
   },
 
+  riPage: function () {
+    // console.log("H")
+    YelpClone.places.fetch();
+    var riView = new YelpClone.Views.RestaurantIndex({
+      collection: YelpClone.places
+    });
+    this._swapView(riView);
+  },
+
   landingPage: function () {
-    console.log("Hello");
     var mainPageView = new YelpClone.Views.MainPageView({});
     this._swapView(mainPageView);
   },
