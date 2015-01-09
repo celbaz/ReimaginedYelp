@@ -1,0 +1,20 @@
+.result-list {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  //seems dumb
+  border: 5px solid black;
+}
+
+
+.result-option:hover {
+  cursor: pointer;
+}
+
+#restaurant-view {
+  height: 100%;
+  width: 400px;
+  left: 300px;
+  position: fixed;
+  padding: 40px;
+}

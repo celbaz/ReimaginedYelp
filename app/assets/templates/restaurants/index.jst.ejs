@@ -1,6 +1,15 @@
-<h2>Result List</h2>
-<ol>
-  <% places.each( function (place) { %>
-     <li> <%= place.escape("name") %> </li>
-  <% }) %>
-</ol>  
+<div class="result-list">
+  <h2>Search Results</h2>
+  <ol>
+    <% places.each( function (place) { %>
+        <li class="result-option" data-id="<%= place.id %>">
+           <%= place.escape("name")  %>
+           Cuisine: <%= place.escape("cuisine") %>
+        </li>
+      <% }) %>
+    </ol>
+</div>
+
+<div id="restaurant-view">
+
+</div>
