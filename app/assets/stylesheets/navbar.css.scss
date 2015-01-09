@@ -1,6 +1,6 @@
 
 .header {
-  background: #e74c3c;
+  background: #f00;
   color: #eee;
   font-weight: 300;
   opacity: 50%;
@@ -20,15 +20,15 @@
 
 .sign-in {
   float: left;
-  padding: 10px;
+  padding: 10px 7px;
   margin: 12px;
-  border-radius: 15px;
+  border-radius: 5px;
   border: 1px solid #eee;
 }
 
 .sign-in:hover {
-  background: #2ecc71;
-  transition: 1s;
+  background: #27ae60;
+  transition: 0.8s;
 }
 
 .sign-out:hover {

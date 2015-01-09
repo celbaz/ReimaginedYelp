@@ -9,8 +9,8 @@
       <li class="sign-in"><i class="fa fa-user fa-lg"></i> <%= link_to  current_user.username , user_url(current_user) %> </li>
       <li class="sign-out"><%= link_to "Sign Out", session_url, :method => :delete %></li>
       <% else %>
-      <li class="sign-in"><%= link_to "Sign In", new_session_url %></li>
-      <li class="sign-in"><%= link_to "Sign Up", new_user_url %></li>
+      <li class="sign-in modal-signin"><%= link_to "Sign In", new_session_url %></li>
+      <li class="sign-in modal-signup"><%= link_to "Sign Up", new_user_url %></li>
       <% end %>
     </ul>
   </nav>

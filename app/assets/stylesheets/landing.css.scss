@@ -1,0 +1,32 @@
+.hero {
+  width: 100%;
+  z-index: -1;
+  height: 700px;
+  background-image: image-url("temp_back2.jpg");
+  background-size: cover;
+}
+
+#explain-tiles {
+  position: fixed;
+  bottom: 0px;
+  height: 250px;
+  width: 100%;
+  background: #eee;
+  float: left;
+  opacity: 50%;
+}
+
+.info-sec {
+  float: right;
+  width: 33%;
+  border-right: 1px solid black;
+  height: inherit;
+
+}
+
+.info-sec p {
+  text-align: center;
+  margin-top: 25px;
+  font-weight: 300;
+  color: black
+}
