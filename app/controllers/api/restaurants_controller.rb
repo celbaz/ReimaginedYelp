@@ -36,7 +36,7 @@ module Api
       end
 
       def show
-        @place = Restaurant.find_by_id(params[:id])
+        @place = Restaurant.includes(:reviews).find_by_id(params[:id])
         render :json => @place
       end
 
