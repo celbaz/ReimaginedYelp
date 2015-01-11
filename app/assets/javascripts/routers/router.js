@@ -1,19 +1,19 @@
 YelpClone.Routers.Router = Backbone.Router.extend({
   initialize: function (options){
-    this.$rootEl = options.$rootEl,
-    this.$footerEl = options.$footerEl
+    this.$rootEl = options.$rootEl
+    // this.$footerEl = options.$footerEl
   },
 
   routes: {
-    '': "landingPage",
-    'restaurants': "riPage"
-    // 'user/:id': userPage,
+    '': 'landingPage',
+    'restaurants': 'restPage',
+    'users/:id': 'userPage',
     // 'search/map': searchMap,
     // 'search/list': searchMap,
     // 'sentence' if time permits
   },
 
-  riPage: function () {
+  restPage: function () {
     // console.log("H")
     YelpClone.places.fetch();
     var riView = new YelpClone.Views.RestaurantIndex({
@@ -25,6 +25,15 @@ YelpClone.Routers.Router = Backbone.Router.extend({
   landingPage: function () {
     var mainPageView = new YelpClone.Views.MainPageView({});
     this._swapView(mainPageView);
+  },
+
+  userPage: function (id) {
+    var user = new YelpClone.Models.User({id: id});
+    user.fetch();
+    var viewShow =  new YelpClone.Views.UserShow({
+      model : user
+    });
+    this._swapView(viewShow);
   },
 
   _swapView: function (view) {

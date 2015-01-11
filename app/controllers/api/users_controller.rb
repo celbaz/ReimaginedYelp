@@ -1,8 +1,5 @@
 module Api
   class UsersController < ApplicationController
-    def new
-      @user = User.new
-    end
 
     def create
       @user = User.new(user_params)
@@ -16,8 +13,7 @@ module Api
     end
 
     def show
-      @user = current_user
-      render :show
+      @user = User.includes(:reviews, :restaurants).find(params[:id])
     end
 
     private

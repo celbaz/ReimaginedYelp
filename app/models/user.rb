@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
 
   has_many :restaurants,
     class_name: "Restaurant",
-    foreign_key: :place_id,
+    foreign_key: :user_id,
     primary_key: :id
 
-  has_many :user,
+  has_many :reviews,
     class_name: "Review",
     foreign_key: :user_id,
     primary_key: :id

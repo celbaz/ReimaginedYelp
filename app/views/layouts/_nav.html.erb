@@ -6,7 +6,12 @@
 
     <ul class="header-list group">
       <% if signed_in? %>
-      <li class="sign-in"><i class="fa fa-user fa-lg"></i> <%= link_to  current_user.username , user_url(current_user) %> </li>
+      <li class="sign-in">
+        <a href="/#/users/<%= current_user.id %>">
+          <i class="fa fa-user fa-lg"></i>
+          <%= current_user.nickname == "" ? current_user.username : current_user.nickname %>
+        </a>
+        </li>
       <li class="sign-out"><%= link_to "Sign Out", session_url, :method => :delete %></li>
       <% else %>
       <li class="sign-in modal-signin"><%= link_to "Sign In", new_session_url %></li>
