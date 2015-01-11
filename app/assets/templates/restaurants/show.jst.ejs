@@ -1,18 +1,24 @@
-<% for (k in place.attributes){ %>
-  <p>
-    <%= k  %> : <%= place.escape(k) %>
-  </p>
-<% } %>
-
 <style media="screen">
-  #map {
-    position: absolute;
-    width: 100%;
-    height: 200px;
-  }
+#map {
+  width: 100%;
+  height: 200px;
+}
 </style>
 
-  <div id='map'></div>
+<div id='map'></div>
+
+<div id="restaurant-info">
+  <h3><%= place.escape("name") %></h3>
+  <ul>
+    <li>Food Inspection Rating: <%= place.escape("food_inspection") %></li>
+    <li>Cuisine: <%= place.escape("cuisine") %></li>
+    <li>Address: <%= place.escape("street")%> <%= place.escape("city")%>
+      <%= place.escape("state")%> <%= place.escape("zipcode")%>
+    </li>
+    <li>Phone Number: <%= place.escape("phone_number") %></li>
+  </ul>
+</div>
+
 
   <script>
   L.mapbox.accessToken = 'pk.eyJ1IjoiY2VsYmF6IiwiYSI6Inp6dUhCT28ifQ.FO0dwet0j5QrequaeoZiOg';
@@ -32,7 +38,7 @@
       ]
     },
     properties: {
-      title: 'Peregrine Espresso',
+      title: "AA",
       description: '1718 14th St NW, Washington, DC',
       // one can customize markers by adding simplestyle properties
       // https://www.mapbox.com/guides/an-open-platform/#simplestyle
