@@ -1,5 +1,36 @@
-<ul>
-  <% for (i in user.attributes) { %>
-    <li><%= i %> : <%= user.escape(i) %></li>
-  <% } %>
-</ul>
+
+<div class='group'>
+
+  <section class="user-menu">
+    <div>
+      <a>Profile</a>
+    </div>
+
+    <div>
+      <a>Reviews</a>
+    </div>
+
+    <div>
+      <a>Restaurants</a>
+    </div>
+  </section>
+
+  <section class="user-content">
+    <div id="profile-pic">
+      Profile Pic (paperclip to come!)
+    </div>
+    <div id="name">
+      <div id="user-name">
+        Welcome <%= user.escape("username") %>
+        <% if(user.escape("nickname") != "") { %>
+          A.K.A. <%= user.escape("nickname") %>
+          <% } %>
+        </div>
+        <div id="user-info">
+          About: <%= user.escape("description") != "" ? user.escape("description") : "ADD IT" %>
+          Location: <%= user.escape("location") != "" ? user.escape("location") : "ADD IT" %>
+        </div>
+    </div>
+  </section>
+
+</div>

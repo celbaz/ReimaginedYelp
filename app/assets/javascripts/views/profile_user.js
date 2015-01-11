@@ -1,5 +1,6 @@
 YelpClone.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
+  userProfileTemplate: JST['user/profile'],
 
   initialize: function (){
     this.listenTo(this.model, 'sync', this.render)

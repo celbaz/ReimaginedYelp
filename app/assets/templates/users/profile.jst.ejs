@@ -1,0 +1,5 @@
+<ul>
+  <% for (i in user.attributes) { %>
+    <li><%= i %> : <%= user.escape(i) %></li>
+  <% } %>
+</ul>
