@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  wrap_parameters false
+
   def new
     @user = User.new
   end

@@ -28,6 +28,17 @@ YelpClone.Models.User = Backbone.Model.extend({
     }
 
     return resp;
+  },
+  //
+  toJSON: function(){
+    // We want proper namespacing of our attributes in Rails.
+    var json = {user: _.clone(this.attributes)};
+
+    if (this._image) {
+      json.user.image = this._image;
+    }
+
+    return json;
   }
 
 

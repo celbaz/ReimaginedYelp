@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111002122) do
+ActiveRecord::Schema.define(version: 20150112161335) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "restaurants", force: true do |t|
     t.integer  "user_id",         null: false
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150111002122) do
     t.string   "city",            null: false
     t.string   "state",           null: false
     t.integer  "phone_number"
-    t.string   "cuisine",         null: false
+    t.integer  "cuisine",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,20 +37,24 @@ ActiveRecord::Schema.define(version: 20150111002122) do
     t.string   "title"
     t.integer  "user_id",    null: false
     t.integer  "place_id"
-    t.string   "rating",     null: false
+    t.integer  "rating",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "username",        null: false
-    t.string   "session_token",   null: false
-    t.string   "password_digest", null: false
+    t.string   "username",           null: false
+    t.string   "session_token",      null: false
+    t.string   "password_digest",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nickname"
     t.string   "location"
     t.string   "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

@@ -1,8 +1,9 @@
 <form class="user-content">
     <div id="profile-pic">
-     Profile Pic (paperclip to come!)
-     <input type="button" name="some_name" value="Change Photo">
+      <img width="250" id="preview-post-image" src="<%= user.escape("image_url") %>" />
     </div>
+    <!-- <img src="" width="250" id="preview-post-image"> -->
+    <input type="file" name="user[image]" id="input-post-image">
     <div id="name">
       <div id="user-name">
         <label for="">Email

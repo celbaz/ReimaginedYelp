@@ -4,6 +4,7 @@
   <section class="user-menu">
     <div class="profile">
       <a>Profile</a>
+
     </div>
 
     <div class="profile-reviews">
@@ -16,9 +17,7 @@
   </section>
 
   <form class="user-content">
-    <div id="profile-pic">
-      Profile Pic (paperclip to come!)
-    </div>
+      <img  id="profile-pic" height="250" src="<%= user.escape("image_url") %>" ="" />
     <div id="name">
       <div id="user-name">
         Welcome <%= user.escape("username") %>
