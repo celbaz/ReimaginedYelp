@@ -2,7 +2,8 @@ YelpClone.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
   userRestTemplate: JST['users/restaurants'],
   reviewTemplate: JST['users/reviews'],
-  editTemplate: JST['users/edit'],
+  editTemplate: JST['users/edituser'],
+  placeTemplate: JST['users/editplace'],
 
   initialize: function (){
     this.listenTo(this.model, 'sync', this.render)
@@ -22,7 +23,9 @@ YelpClone.Views.UserShow = Backbone.View.extend({
     'click .profile-reviews': 'renderReviews',
     'click .profile-rest': 'renderRestaurants',
     'click .save-user': 'saveUser',
-    "change #input-post-image": "fileInputChange"
+    "change #input-post-image": "fileInputChange",
+    "click #addplace": 'renderEditRestaurant',
+    'click .create-rest': 'saveRest'
 
   },
 
@@ -30,13 +33,31 @@ YelpClone.Views.UserShow = Backbone.View.extend({
     event.preventDefault();
     var formData = $(".user-content").serializeJSON().user, that = this;
     this.model.set(formData);
-    console.log(this.model);
     this.model.save({}, {
       success: function () {
        delete that.model._picture;
         Backbone.history.navigate("", {trigger: true});
       }
     });
+  },
+
+  saveRest: function () {
+    event.preventDefault();
+    var formData = $(".user-content").serializeJSON().place, that = this;
+    var rest = new YelpClone.Models.Restaurant().set(formData);
+    rest.save({}, {
+      success: function () {
+        Backbone.history.navigate("restaurants", {trigger: true});
+      },
+      failure: function (){
+        console.log("Milk")
+      }
+    });
+  },
+
+  renderEditRestaurant: function () {
+    var renderedContent = this.placeTemplate();
+    $(".user-content").html(renderedContent);
   },
 
   editUser: function (event) {

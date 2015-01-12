@@ -6,7 +6,7 @@ module Api
         @place = current_user.restaurants.new(place_params)
 
         if @place.save
-          redirect_to user_url(current_user)
+          redirect_to root_url
         else
           flash.now[:errors] = @place.errors.full_messages
           render :new
