@@ -2,20 +2,20 @@
 <div class='group'>
 
   <section class="user-menu">
-    <div>
+    <div class="profile">
       <a>Profile</a>
     </div>
 
-    <div>
+    <div class="profile-reviews">
       <a>Reviews</a>
     </div>
 
-    <div>
+    <div class="profile-rest">
       <a>Restaurants</a>
     </div>
   </section>
 
-  <section class="user-content">
+  <form class="user-content">
     <div id="profile-pic">
       Profile Pic (paperclip to come!)
     </div>
@@ -31,6 +31,7 @@
           Location: <%= user.escape("location") != "" ? user.escape("location") : "ADD IT" %>
         </div>
     </div>
-  </section>
+    <input type="button" class="edit-user" value="Edit">
+  </form>
 
 </div>

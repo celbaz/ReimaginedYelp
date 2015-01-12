@@ -1,0 +1,6 @@
+<% reviews.each( function(review){ %>
+    <% for( i in review.attributes){ %>
+      <h2><%= i %> : <%= review.escape(i) %></h2>
+
+      <% } %>
+  <% }); %>

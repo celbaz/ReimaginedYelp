@@ -1,0 +1,6 @@
+<% places.each( function(place){ %>
+    <% for( i in place.attributes){ %>
+      <h2><%= i %> : <%= place.escape(i) %></h2>
+
+      <% } %>
+  <% }); %>
