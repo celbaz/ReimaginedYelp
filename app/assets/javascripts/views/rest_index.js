@@ -22,10 +22,11 @@ YelpClone.Views.RestaurantIndex = Backbone.View.extend({
   renderModel: function (event) {
     var id = $(event.target).attr("data-id");
     var restaurant = YelpClone.places.get(id);
+    YelpClone.map.setView([restaurant.get("latitude") ,restaurant.get("longitude")], 14);
     var renderedContent =  this.placeTemplate({
         place : restaurant
     });
-
+    // debugger
     $("#restaurant-view").html(renderedContent);
   }
 

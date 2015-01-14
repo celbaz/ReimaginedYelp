@@ -1,50 +1,37 @@
 <style media="screen">
 #map {
-  width: 100%;
-  height: 200px;
+  margin: 250px;
+  float:right;
+  width: 60%;
+  height: 400px;
 }
 </style>
 
 <div id='map'></div>
 
-<div id="restaurant-info">
-  <h3><%= place.escape("name") %></h3>
-  <ul>
-    <li>Food Inspection Rating: <%= place.escape("food_inspection") %></li>
-    <li>Cuisine: <%= place.escape("cuisine") %></li>
-    <li>Address: <%= place.escape("street")%> <%= place.escape("city")%>
-      <%= place.escape("state")%> <%= place.escape("zipcode")%>
-    </li>
-    <li>Phone Number: <%= place.escape("phone_number") %></li>
-  </ul>
-</div>
+<script charset="utf-8">
 
-
-  <script>
-  L.mapbox.accessToken = 'pk.eyJ1IjoiY2VsYmF6IiwiYSI6Inp6dUhCT28ifQ.FO0dwet0j5QrequaeoZiOg';
-  var map = L.mapbox.map('map', 'examples.map-i86nkdio')
-  .setView([40.7250397, -73.9968335], 14);
-
-  L.mapbox.featureLayer({
-    // this feature is in the GeoJSON format: see geojson.org
-    // for the full specification
-    type: 'Feature',
-    geometry: {
-      type: 'Point',
-      // coordinates here are in longitude, latitude order because
-      // x, y is the standard for GeoJSON and many formats
-      coordinates: [
-       -73.9968335, 40.7250397
-      ]
-    },
-    properties: {
-      title: "AA",
-      description: '1718 14th St NW, Washington, DC',
-      // one can customize markers by adding simplestyle properties
-      // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-      'marker-size': 'large',
-      'marker-color': '#f00',
-      'marker-symbol': 'cafe'
-    }
-  }).addTo(map);
-  </script>
+L.mapbox.featureLayer({
+  // this feature is in the GeoJSON format: see geojson.org
+  // for the full specification
+  type: 'Feature',
+  geometry: {
+    type: 'Point',
+    // coordinates here are in longitude, latitude order because
+    // x, y is the standard for GeoJSON and many format
+    coordinates: [
+    parseFloat(<%= place.escape("longitude") %>),
+    parseFloat(<%= place.escape("latitude") %>)
+    ]
+  },
+  properties: {
+    title: '<%= place.escape("title") %>',
+    description: '<%= place.escape("title") %>',
+    // one can customize markers by adding simplestyle properties
+    // https://www.mapbox.com/guides/an-open-platform/#simplestyle
+    'marker-size': 'large',
+    'marker-color': '#BE9A6B',
+    'marker-symbol': 'restaurant'
+  }
+}).addTo(YelpClone.map);
+</script>

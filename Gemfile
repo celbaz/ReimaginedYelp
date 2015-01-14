@@ -35,6 +35,9 @@ gem 'bcrypt', '~> 3.1.7'
 #Used for created gps locations out of addresses
 gem 'geocoder'
 
+
+#Used for pulling latest photos from restaurants
+gem 'instagram'
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -1,7 +1,19 @@
+
+<script charset="utf-8">
+$(document).ready(function(){
+  YelpClone.MapboxToken = "<%= ENV["MAPBOX_ACCESS_TOKEN"] %>";
+  YelpClone.CurrentLocation = {
+    longitude: <%= current_location[:latitude] %>,
+    latitude: <%= current_location[:longitude] %>
+  }
+  YelpClone.initialize();
+});
+</script>
+
 <div id="content">
 
 </div>
-<!-- 
-<div id="footer">
 
-</div> -->
+<div id="map">
+
+</div>
