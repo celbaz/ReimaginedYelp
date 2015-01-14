@@ -38,6 +38,7 @@ YelpClone.Routers.Router = Backbone.Router.extend({
   searchPage: function () {
     var searchView = new YelpClone.Views.Search();
     this._swapView(searchView);
+    this.map.createMap();
   },
 
 
