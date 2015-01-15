@@ -1,11 +1,6 @@
 YelpClone.Views.Search = Backbone.CompositeView.extend({
 
   className: "group",
-
-  initialize: function () {
-    // th
-  },
-
   template: JST['search/container'],
 
   renderTemplate: JST['search/results'],

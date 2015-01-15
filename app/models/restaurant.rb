@@ -2,7 +2,7 @@ class Restaurant < ActiveRecord::Base
   validates :name, :food_inspection, presence: true
   validates :user_id, :street, :zipcode, :city, :state, presence: true
   validates :food_inspection, inclusion: ["A", "B", "C", "P", "Z"]
-  
+
   belongs_to :owner,
     class_name: "User",
     foreign_key: :user_id,
@@ -20,4 +20,14 @@ class Restaurant < ActiveRecord::Base
     "#{self.street} #{self.city} #{self.state} #{self.zipcode} U.S.A."
   end
 
+  def self.search(keyword, location, rating, distance)
+    result = self.near(location, distance)
+    if keyword.present?
+      result = result.where("name LIKE :key OR cuisine LIKE :key",key: "%#{keyword}")
+    end
+    if rating != "Any"
+      result = result.where(rating: rating)
+    end
+    result
+  end
 end

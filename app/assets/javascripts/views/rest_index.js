@@ -26,7 +26,6 @@ YelpClone.Views.RestaurantIndex = Backbone.View.extend({
     var renderedContent =  this.placeTemplate({
         place : restaurant
     });
-    // debugger
     $("#restaurant-view").html(renderedContent);
   }
 

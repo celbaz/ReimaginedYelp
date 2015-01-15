@@ -40,6 +40,19 @@ module Api
         render :json => @place
       end
 
+      def search
+        location = ""
+        if params[:location].is_a? Hash
+            location = [params[:location][:latitude],
+            params[:location][:longitude]]
+        else
+            location = params[:location]
+        end
+
+        @search_results =  Restaurant.search(params[:cuisine], location,
+        params[:rating], params[:distance])
+      end
+
       private
       def place_params
         params.require(:place).permit(:name, :food_inspection, :cuisine,

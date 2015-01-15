@@ -34,8 +34,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 #Used for created gps locations out of addresses
 gem 'geocoder'
-gem 'pg_search'
-gem 'kaminari'
 
 #Used for pulling latest photos from restaurants
 # gem 'instagram'

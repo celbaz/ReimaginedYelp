@@ -1,6 +1,13 @@
 YelpClone.Views.SearchForm = Backbone.View.extend({
 
   template: JST['search/form'],
+  resultTemplate: JST['search/results'],
+
+  initialize: function () {
+    this.restaurants = new YelpClone.Collections.Restaurants();
+    this.restaurants.url = "api/restaurants/search";
+    this.listenTo(this.restaurants, 'sync', this.renderResults);
+  },
 
   events: {
     'submit': 'runSearch',
@@ -13,31 +20,37 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
     return this;
   },
 
-  runSearch: function () {
-
-
-
-
+  runSearch: function (event) {
+    if(this.currentLayer){
+      this.currentLayer.removeLayer(YelpClone.map);
+    }
+    event.preventDefault();
+    var formData = $("#search-form").serializeJSON().place;
+    if (formData.location === ""){
+      formData.location = YelpClone.CurrentLocation;
+    }
+    this.restaurants.fetch({
+      data: formData
+    });
   },
 
-
-  locates: function () {
-    YelpClone.map.on('locationfound', function (e) {
-      YelpClone.CurrentLocation.latitude = e.latlng.lat;
-      YelpClone.CurrentLocation.longitude = e.latlng.lng;
-      console.log(e.latLng);
-    });
-    YelpClone.map.on('locationerror', function (e) {
-      if(YelpClone.CurrentLocation.latitude === 0 || YelpClone.CurrentLocation.longitude === 0) {
-        YelpClone.CurrentLocation = {latitude: 40.735031, longitude: -73.990517};
-      }
-    });
-    YelpClone.map.locate();
-  },
-
-  addPins: function (collection) {
+  renderResults: function() {
+    console.log(this.restaurants);
     var featureLayer = L.mapbox.featureLayer().addTo(YelpClone.map);
-    collection.each()
+    this.restaurants.each(function (place) {
+      var marker = new L.marker([place.get("latitude"),
+      place.get("longitude")], {
+        icon: L.mapbox.marker.icon({
+          'marker-size': 'large',
+          'marker-symbol': 'restaurant',
+          'marker-color': '#e67e22'
+        })}
+        ).addTo(YelpClone.map);
+    });
+    this.currentLayer = featureLayer;
+    var renderedContent = this.resultTemplate({
+      places: this.restaurants
+    });
+    $("#results-are-nice").html(renderedContent);
   }
-
 });

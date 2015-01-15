@@ -1,6 +1,6 @@
 YelpClone.Routers.Router = Backbone.Router.extend({
   initialize: function (options){
-    this.$rootEl = options.$rootEl
+    this.$rootEl = options.$rootEl;
     // this.$footerEl = options.$footerEl
   },
 
@@ -39,7 +39,8 @@ YelpClone.Routers.Router = Backbone.Router.extend({
     var searchView = new YelpClone.Views.Search();
     this._swapView(searchView);
     this.map.createMap();
-  },
+    this.map.locates();
+    },
 
 
   _swapView: function (view) {

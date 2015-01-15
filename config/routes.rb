@@ -10,6 +10,18 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :users
     resources :reviews, only: [:create, :destroy, :update, :show]
-    resources :restaurants, only: [:create, :destroy, :update, :show, :index]
+    resources :restaurants, only: [:create, :destroy, :update, :show, :index] do
+      collection do
+        get "search"
+      end
+    end
   end
 end
+
+
+#
+# form sends a  fetch
+# this.searchResults._query = this.$(".query").val();
+# this.searchResults.fetch({
+#   data: {query: this.searchResults._query}
+#   });

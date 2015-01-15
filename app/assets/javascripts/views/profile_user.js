@@ -50,7 +50,7 @@ YelpClone.Views.UserShow = Backbone.View.extend({
         Backbone.history.navigate("restaurants", {trigger: true});
       },
       failure: function (){
-        console.log("Milk")
+        console.log("Milk");
       }
     });
   },
