@@ -15,10 +15,13 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
 
   runSearch: function () {
 
+
+
+
   },
 
 
-  locates : function () {
+  locates: function () {
     YelpClone.map.on('locationfound', function (e) {
       YelpClone.CurrentLocation.latitude = e.latlng.lat;
       YelpClone.CurrentLocation.longitude = e.latlng.lng;
@@ -31,5 +34,10 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
     });
     YelpClone.map.locate();
   },
+
+  addPins: function (collection) {
+    var featureLayer = L.mapbox.featureLayer().addTo(YelpClone.map);
+    collection.each()
+  }
 
 });

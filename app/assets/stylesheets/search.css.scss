@@ -8,6 +8,9 @@
   height: 100%;
   float: left;
   // border: 1px solid blue ;
+  font-family: "Lato";
+  font-size: 16px;
+  font-weight: 300;
 }
 
 #content.maps {
@@ -25,4 +28,35 @@
   float: right;
   width: calc(100% - 350px);
   height: 100%;
+}
+
+#results-are-nice {
+
+  font-family: "Lato";
+  font-size: 16px;
+  font-weight: 100;
+}
+
+#sidebar-info label {
+  margin-top: 10px;
+  float: left;
+  font-size: 24px;
+  color: #3498db;
+}
+
+#sidebar-info input[type="text"] {
+  float: right;
+  display: block;
+  margin: 10px;
+  padding: 10px 20px;
+  background: white;
+  font-size: 16px;
+  border-radius: 3px;
+  stroke: 0;
+  border: 2px solid #3498db;
+  // font-family:
+}
+
+.gps-button {
+
 }
