@@ -11,7 +11,13 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
 
   events: {
     'submit': 'runSearch',
-    'submit .nearme': 'locates'
+    'submit .nearme': 'locates',
+    'click .list-place': 'createQuickView'
+  },
+
+  createQuickView: function (event) {
+    var data = $(event.target).attr("data-id");
+    console.log(data);
   },
 
   render: function () {
