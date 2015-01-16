@@ -1,6 +1,6 @@
 module Api
   class RestaurantsController < ApplicationController
-    before_filter :require_signed_in!, except: [:show, :index, :location]
+    before_filter :require_signed_in!, except: [:show, :index, :location, :search]
 
       def create
         @place = current_user.restaurants.new(place_params)

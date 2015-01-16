@@ -12,8 +12,7 @@ YelpClone.Views.Map = Backbone.View.extend({
 
   locates: function () {
     YelpClone.map.on('locationfound', function (e) {
-      YelpClone.CurrentLocation.latitude = e.latlng.lat;
-      YelpClone.CurrentLocation.longitude = e.latlng.lng;
+      YelpClone.CurrentLocation = {latitude: e.latlng.lat, longitude: e.latlng.lng};
     });
     YelpClone.map.on('locationerror', function (e) {
       if(YelpClone.CurrentLocation.latitude === 0 || YelpClone.CurrentLocation.longitude === 0) {
