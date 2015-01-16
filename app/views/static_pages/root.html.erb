@@ -2,21 +2,10 @@
 <script charset="utf-8">
 $(document).ready(function(){
   YelpClone.MapboxToken = "<%= ENV["MAPBOX_ACCESS_TOKEN"] %>";
-  YelpClone.CurrentLocation = {
-    longitude: <%= current_location[:latitude] || 0 %>,
-    latitude: <%= current_location[:longitude] || 0 %>
-  }
   YelpClone.initialize();
 });
 </script>
 
 <div id="content" class="group">
-
-</div>
-
-<div style="position: absolute; z-index: 1000; background: yellow;" id="name">
-
-  <%= request.location.inspect %>
-  <%= request.ip %>
 
 </div>

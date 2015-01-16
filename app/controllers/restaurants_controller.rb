@@ -46,6 +46,7 @@ class RestaurantsController < ApplicationController
     def show
       @place = Restaurant.find_by_id(params[:id])
     end
+  
 
     private
     def place_params

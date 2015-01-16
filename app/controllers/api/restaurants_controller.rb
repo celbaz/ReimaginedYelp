@@ -1,6 +1,6 @@
 module Api
   class RestaurantsController < ApplicationController
-    before_filter :require_signed_in!, except: [:show, :index]
+    before_filter :require_signed_in!, except: [:show, :index, :location]
 
       def create
         @place = current_user.restaurants.new(place_params)
@@ -51,6 +51,10 @@ module Api
 
         @search_results =  Restaurant.search(params[:cuisine], location,
         params[:rating], params[:distance])
+      end
+
+      def location
+          render :json => current_location
       end
 
       private

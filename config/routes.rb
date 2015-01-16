@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :restaurants, only: [:create, :destroy, :update, :show, :index] do
       collection do
         get "search"
+        get "location"
       end
     end
   end
