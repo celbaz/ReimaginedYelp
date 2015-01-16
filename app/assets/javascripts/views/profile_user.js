@@ -10,6 +10,7 @@ YelpClone.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
+    console.log(this.model)
     var renderedContent = this.template({
         user : this.model
     });
@@ -25,7 +26,8 @@ YelpClone.Views.UserShow = Backbone.View.extend({
     'click .save-user': 'saveUser',
     "change #input-post-image": "fileInputChange",
     "click #addplace": 'renderEditRestaurant',
-    'click .create-rest': 'saveRest'
+    'click .create-rest': 'saveRest',
+    'click .delete-rest': 'deleteRest'
 
   },
 
@@ -47,7 +49,6 @@ YelpClone.Views.UserShow = Backbone.View.extend({
     var rest = new YelpClone.Models.Restaurant().set(formData);
     rest.save({}, {
       success: function () {
-        console.log("ello")
         Backbone.history.navigate("", {trigger: true});
       }
     });
@@ -74,9 +75,9 @@ YelpClone.Views.UserShow = Backbone.View.extend({
   },
 
   renderRestaurants: function (){
-    var pla = this.model.restaurants();
+    var place = this.model.restaurants();
     var renderedContent = this.userRestTemplate({
-      places: pla
+      places: place
     });
     $(".user-content").html(renderedContent);
   },
@@ -102,6 +103,14 @@ YelpClone.Views.UserShow = Backbone.View.extend({
 
       console.log(this.model);
     }
+  },
+
+  deleteRest: function (event) {
+    event.preventDefault();
+    var data = $(event.target).attr("data-id");
+    var user = new YelpClone.Models.Restaurant({id: data});
+    user.fetch();
+    user.destroy();
   },
 
   _updatePreview: function(src){

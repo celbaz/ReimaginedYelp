@@ -11,13 +11,12 @@ class SessionsController < ApplicationController
       sign_in(user)
       redirect_to root_url
     else
-      flash.now[:errors] = ["Invalid username or password"]
-      render :new
+      redirect_to root_url
     end
   end
 
   def destroy
     sign_out
-    redirect_to new_session_url
+    redirect_to root_url
   end
 end

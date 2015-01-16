@@ -2,6 +2,7 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
 
   template: JST['search/form'],
   resultTemplate: JST['search/results'],
+  showTemplate: JST['search/show'],
 
   initialize: function () {
     this.restaurants = new YelpClone.Collections.Restaurants();
@@ -38,6 +39,10 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
     this.restaurants.fetch({
       data: formData
     });
+  },
+
+  createQuickView: function () {
+
   },
 
   renderResults: function() {

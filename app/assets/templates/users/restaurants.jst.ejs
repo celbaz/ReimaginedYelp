@@ -2,9 +2,12 @@
   Create A Restaurant
 </div>
 
+
 <% places.each( function(place){ %>
+  <div class="delete-rest" data-id="<%= place.escape("user_id") %>">
     <% for( i in place.attributes){ %>
-      <h2><%= i %> : <%= place.escape(i) %></h2>
+      <p><%= i %> : <%= place.escape(i) %></p>
 
       <% } %>
+  </div>
   <% }); %>

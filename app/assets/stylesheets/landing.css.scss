@@ -49,23 +49,30 @@
 
 .la-options {
   margin-top: 100px;
-  position: relative;
+  width: 80%;
+  margin:auto;
 }
 
+// add a media query for smaller
+
+.la-options a {
+  display: inline-block;
+  margin-top: 100px;
+}
 .la-options div {
   border-radius: 5px;
   border: 3px solid white;
   padding: 5px;
 }
 .la-search {
-  float: left;
-  margin-left: 200px;
+  margin-right: 50px;
 
 }
 
 .la-sentence {
-  float: left;
-  margin-left: 50px;
+
+  // position: absolute;
+  // margin-left: 50px;
 }
 
 
