@@ -25,7 +25,8 @@ class ApplicationController < ActionController::Base
   def current_location
       { latitude:
         request.location.data["latitude"],
-        longitude: request.location.data["longitude"]}
+        longitude: request.location.data["longitude"]
+      }
   end
 
   def require_signed_in!
