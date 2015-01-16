@@ -23,7 +23,7 @@ class Restaurant < ActiveRecord::Base
   def self.search(keyword, location, rating, distance)
     result = self.near(location, distance)
     if keyword.present?
-      result = result.where("(\"restaurants\".\"name\" LIKE :key) OR (\"restaurants\".\"cuisine\" LIKE :key)",key: "%#{keyword}")
+      result = result.where("(name LIKE :key) OR (cuisine LIKE :key)",key: "%#{keyword}")
     end
     if rating != "Any"
       result = result.where(rating: rating)

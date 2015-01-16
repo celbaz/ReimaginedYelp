@@ -6,10 +6,9 @@ module Api
         @place = current_user.restaurants.new(place_params)
 
         if @place.save
-          redirect_to root_url
+          render json: @place
         else
-          flash.now[:errors] = @place.errors.full_messages
-          render :new
+          render json: @place.errors.full_messages
         end
       end
 
@@ -17,17 +16,16 @@ module Api
         @place = Restaurant.find(params[:id])
 
         if @place.update(place_params)
-          redirect_to restaurants_url
+          render json: @place
         else
-          flash.now[:errors] = @place.errors.full_messages
-          render :new
+          render json: @place.errors.full_messages
         end
       end
 
       def destroy
           @place = Restaurant.find(params[:id])
           @place.destroy
-          redirect_to restaurants_url
+          render json: @place
       end
 
       def index

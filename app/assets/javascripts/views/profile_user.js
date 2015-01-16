@@ -47,10 +47,8 @@ YelpClone.Views.UserShow = Backbone.View.extend({
     var rest = new YelpClone.Models.Restaurant().set(formData);
     rest.save({}, {
       success: function () {
-        Backbone.history.navigate("restaurants", {trigger: true});
-      },
-      failure: function (){
-        console.log("Milk");
+        console.log("ello")
+        Backbone.history.navigate("", {trigger: true});
       }
     });
   },
