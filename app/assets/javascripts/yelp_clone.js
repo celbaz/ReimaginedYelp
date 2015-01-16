@@ -14,7 +14,11 @@ window.YelpClone = {
       type: "GET",
       dataType: 'json',
       success: function (data) {
-        YelpClone.CurrentLocation = data;
+        if(data.latitude === null){
+          YelpClone.CurrentLocation = {latitude: 40.735031, longitude: -73.990517};
+        } else {
+          YelpClone.CurrentLocation = data;
+        }
       }
     });
   }
