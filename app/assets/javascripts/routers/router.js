@@ -1,9 +1,10 @@
 YelpClone.Routers.Router = Backbone.Router.extend({
   initialize: function (options){
     this.$rootEl = options.$rootEl;
-    // this.$footerEl = options.$footerEl
+    this.$navEl = options.$navEl;
   },
 
+  // where do i render the nav
   routes: {
     '': 'landingPage',
     'restaurants': 'restPage',
@@ -47,6 +48,31 @@ YelpClone.Routers.Router = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
-  }
+  },
+
+  _requireSignedIn: function(callback){
+    if (!BackboneAuthDemo.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      this.signIn(callback);
+      return false;
+    }
+
+    return true;
+  },
+
+  _requireSignedOut: function(callback){
+    if (BackboneAuthDemo.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      callback();
+      return false;
+    }
+
+    return true;
+  },
+
+  _goHome: function(){
+    Backbone.history.navigate("", { trigger: true });
+  },
+
 
 });
