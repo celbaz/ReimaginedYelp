@@ -4,7 +4,11 @@ window.YelpClone = {
   Views: {},
   Routers: {},
   initialize: function() {
-    // Initializing Map
+
+    this.currentUser = new YelpClone.Models.CurrentUser();
+    this.currentUser.fetch();
+
+    // Initializing Map Token
     L.mapbox.accessToken = YelpClone.MapboxToken;
     YelpClone.places = new YelpClone.Collections.Restaurants();
     YelpClone.router = new YelpClone.Routers.Router({ $rootEl : $("#content") });

@@ -7,7 +7,7 @@
   resources :restaurants
 
   namespace :api, defaults: {:format => :json}  do
-    resource :session, only: [:create, :destroy]
+    resource :session, only: [:create, :destroy, :show]
     resources :users
     resources :reviews, only: [:create, :destroy, :update, :show]
     resources :restaurants, only: [:create, :destroy, :update, :show, :index] do

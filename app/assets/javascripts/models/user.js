@@ -1,5 +1,5 @@
 YelpClone.Models.User = Backbone.Model.extend({
-  urlRoot: 'api/users/',
+  urlRoot: 'api/users',
 
   restaurants: function (){
     if(!this._restaurants) {
@@ -29,7 +29,7 @@ YelpClone.Models.User = Backbone.Model.extend({
 
     return resp;
   },
-  //
+
   toJSON: function(){
     // We want proper namespacing of our attributes in Rails.
     var json = {user: _.clone(this.attributes)};
