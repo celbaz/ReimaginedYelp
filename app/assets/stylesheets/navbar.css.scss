@@ -25,18 +25,16 @@
   margin: 12px;
   border-radius: 5px;
   border: 1px solid #eee;
+  transition: background-color 0.8s;
 }
 
 .sign-in:hover {
   background: #27ae60;
-  transition: 0.8s;
 }
 
 .sign-out:hover {
   background: #2c3e50;
-  transition: 1.5s;
 }
-// do the transition out later
 
 .sign-out {
   float: left;
@@ -45,6 +43,7 @@
   margin-right: 20px;
   border-radius: 15px;
   border: 1px solid #eee;
+  transition: background-color 0.8s;
 }
 
 // Modal CSS

@@ -1,0 +1,156 @@
+#background-color {
+  width: 100%;
+  background: #76C3BD;
+  text-align: center;
+}
+.main {
+  max-width:  80%;
+  margin: 0 auto;
+  padding: 2em;
+  color: wheat;
+}
+
+.nl-form {
+  width: 100%;
+  margin: 0.3em auto 0 auto;
+  font-size: 4em;
+  line-height: 1.5;
+}
+
+.nl-form input,
+.nl-form select,
+.nl-form button {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.nl-form input:focus {
+  outline: none;
+}
+
+/* custom field (drop-down, text element) styling  */
+.nl-field {
+  display: inline-block;
+  position: relative;
+}
+
+.nl-field.nl-field-open {
+  z-index: 10000;
+}
+
+/* the toggle is the visible part in the form */
+.nl-field-toggle,
+.nl-form input,
+.nl-form select  {
+  line-height: inherit;
+  display: inline-block;
+  color: #3498db;
+  cursor: pointer;
+  border-bottom: 2px dashed #b14943;
+}
+
+.form-text {
+  width: 60%;
+}
+.nl-field ul li {
+  position: relative;
+}
+
+.nl-dd ul li {
+  padding: 0 1.5em 0 0.5em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nl-dd ul li.nl-dd-checked {
+  color: #478982;
+}
+
+.no-touch .nl-dd ul li:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.nl-ti-text ul {
+  min-width: 8em;
+}
+
+.nl-ti-text ul li.nl-ti-input input {
+  width: 100%;
+  padding: 0.2em 2em 0.2em 0.5em;
+  border-bottom: none;
+  color: #fff;
+}
+
+.nl-form .nl-field-go {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  cursor: pointer;
+  background: rgba(0,0,0,0.1);
+  width: 1.8em;
+  text-align: center;
+  color: transparent;
+}
+
+.nl-field-go:before {
+  font-size: 75%;
+  color: wheat;
+  width: 100%;
+  line-height: 2.5;
+  display: block;
+}
+
+input::-webkit-input-placeholder {
+  color: wheat;
+}
+
+.nl-ti-text ul li.nl-ti-example {
+  font-size: 40%;
+  font-style: italic;
+  font-weight: 400;
+  padding: 0.4em 1em;
+  color: rgba(0,0,0,0.2);
+  border-top: 1px dashed rgba(255,255,255,0.7);
+}
+
+.nl-submit-wrap {
+  margin-top: 0.4em;
+}
+
+.nl-form .nl-submit {
+  line-height: 3;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  background: #3498db;
+  color: #fff;
+  padding: 0 1em;
+  font-size: 40%;
+  font-weight: bold;
+  letter-spacing: 3px;
+
+}
+
+@media screen and (max-width: 45em) {
+  .nl-form {
+    font-size: 3em;
+  }
+}
+
+@media screen and (max-width: 25em) {
+  .nl-form {
+    font-size: 2em;
+  }
+  
+}

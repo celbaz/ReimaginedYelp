@@ -1,38 +1,14 @@
 #landing {
   position: absolute;
   width: 100%;
-  top: 66px;
+  top: 65px;
   bottom: 0px;
-  background-image: image-url("temp_back2.jpg");
+  background-image: image-url("temp_back1.jpg");
   background-size: cover;
 }
 
-#explain-tiles {
-  position: fixed;
-  bottom: 0px;
-  height: 200px;
-  width: 100%;
-  background: rgba(255,255,255,0.8);
-  float: left;
-}
-
-.info-sec {
-  float: right;
-  width: 25%;
-  border-right: 1px solid black;
-  height: inherit;
-  padding: 25px;
-
-}
-
-.info-sec p {
-  text-align: center;
-  margin-top: 25px;
-  font-weight: 300 bold;
-}
-
 .landing-hero {
-  padding: 150px;
+  padding: 50px;
   font-size: 42px;
   color: white;
   text-align: center;  // width: 100px;
@@ -49,8 +25,8 @@
 
 .la-options {
   margin-top: 100px;
-  width: 80%;
-  margin:auto;
+  width: 100%;
+  margin: auto;
 }
 
 // add a media query for smaller
@@ -63,22 +39,40 @@
   border-radius: 5px;
   border: 3px solid white;
   padding: 5px;
+  transition: background-color .5s ease-in;
 }
 .la-search {
   margin-right: 50px;
 
 }
 
-.la-sentence {
-
-  // position: absolute;
-  // margin-left: 50px;
-}
-
-
 
 .la-options div:hover {
   background-color: rgba(240, 0, 0, 0.4);
-  transition: background-color .5s ease-in; /* vendorless fallback */
 
+}
+
+
+@media only screen and (max-width: 1015px) {
+  .la-options {
+    margin-top: 50px;
+  }
+
+  .la-options a {
+    margin-top: 50px;
+    font-size: 30px;
+    transition: 1s;
+  }
+}
+
+
+@media only screen and (max-width: 748px) {
+  .landing-hero h2 {
+    font-size: 64px;
+    transition: 1s;
+  }
+
+  .la-options a:first-child {
+    margin-left: 46px;
+  }
 }

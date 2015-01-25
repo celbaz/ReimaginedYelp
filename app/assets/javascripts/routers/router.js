@@ -4,14 +4,12 @@ YelpClone.Routers.Router = Backbone.Router.extend({
     this.$navEl = options.$navEl;
   },
 
-  // where do i render the nav
   routes: {
     '': 'landingPage',
-    'restaurants': 'restPage',
+    // 'restaurants': 'restPage',
     'users/:id': 'userPage',
-    'search': 'searchPage'
-    // 'search/list': searchMap,
-    // 'sentence' if time permits
+    'search': 'searchPage',
+    'sentence': 'sentencePage'
   },
 
   landingPage: function () {
@@ -19,12 +17,9 @@ YelpClone.Routers.Router = Backbone.Router.extend({
     this._swapView(mainPageView);
   },
 
-  restPage: function () {
-    YelpClone.places.fetch();
-    var riView = new YelpClone.Views.RestaurantIndex({
-      collection: YelpClone.places
-    });
-    this._swapView(riView);
+  sentencePage: function () {
+    var sentenceView = new YelpClone.Views.SentenceIndex();
+    this._swapView(sentenceView);
   },
 
   userPage: function (id) {

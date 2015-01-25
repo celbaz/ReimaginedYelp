@@ -5,7 +5,7 @@ YelpClone.Views.NavBar = Backbone.View.extend({
   },
 
   events: {
-    "click modal-signin": "modalSignIn",
+    "click li.sign-in:first-child": "modalSignIn",
     "click modal-signup": "modalSignUp",
     "click sign-occurance": "submit"
   },
@@ -14,14 +14,13 @@ YelpClone.Views.NavBar = Backbone.View.extend({
     if (YelpClone.currentUser.isSignedIn()) {
       var content = JST['nav/logged_in'];
     } else {
-      console.log("Hello");
       var content = JST['nav/logged_out'];
     }
     this.$navEl.html(content);
   },
 
   modalSignIn: function () {
-
+    console.log('Helo');
   },
 
   modalSignUp: function () {
