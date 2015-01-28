@@ -1,1 +1,1 @@
-json.(current_user, :username, :nickname, :location, :description, :created_at)
+json.(current_user, :id ,:username, :nickname, :location, :description, :created_at)

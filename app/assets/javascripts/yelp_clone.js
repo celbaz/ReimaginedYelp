@@ -12,11 +12,10 @@ window.YelpClone = {
     L.mapbox.accessToken = YelpClone.MapboxToken;
     YelpClone.places = new YelpClone.Collections.Restaurants();
     YelpClone.router = new YelpClone.Routers.Router({
-       $rootEl : $("#content") ,
-       $navEl  : $(".header")
+       $rootEl : $("#content")
     });
 
-    var navbar = new YelpClone.Views.NavBar({ $navEl  : $(".header") });
+    var navbar = new YelpClone.Views.NavBar({ el : $(".header") });
     navbar.render();
 
     Backbone.history.start();

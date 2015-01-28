@@ -10,16 +10,16 @@ module Api
 
       if user
         sign_in(user)
-        redirect_to root_url
+        render json: user
       else
-        redirect_to root_url
+        render json: ["User does not exist."], status: 422
       end
     end
 
 
     def destroy
       sign_out
-      redirect_to root_url
+      render json: {}
     end
 
     def show

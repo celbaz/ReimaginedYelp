@@ -4,9 +4,9 @@
   </h1>
 
   <ul class="header-list group">
-    <li class="sign-in modal-signin">
-      <a class="js-show-modal">
-        <i></i> <%= YelpClone.currentUser.escape("username") %>
+    <li class="sign-in">
+      <a href="/#/users/<%= YelpClone.currentUser.id %>">
+        <i class="fa fa-user"></i> <%= YelpClone.currentUser.escape("username") %>
       </a>
     </li>
     <li class="sign-out">Sign Out</li>

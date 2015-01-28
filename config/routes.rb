@@ -1,10 +1,6 @@
  Rails.application.routes.draw do
   root to: 'static_pages#root'
-
   resource :session, only: [:create, :destroy, :new]
-  resources :users, only: [:new, :create, :show]
-  resources :reviews, only: [:create, :destroy]
-  resources :restaurants
 
   namespace :api, defaults: {:format => :json}  do
     resource :session, only: [:create, :destroy, :show]
@@ -18,11 +14,3 @@
     end
   end
 end
-
-
-#
-# form sends a  fetch
-# this.searchResults._query = this.$(".query").val();
-# this.searchResults.fetch({
-#   data: {query: this.searchResults._query}
-#   });

@@ -59,7 +59,7 @@ YelpClone.Models.CurrentUser = YelpClone.Models.User.extend({
   signIn: function(options){
     var model = this;
     var credentials = {
-      "user[email]": options.email,
+      "user[username]": options.username,
       "user[password]": options.password
     };
 
