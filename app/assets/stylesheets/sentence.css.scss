@@ -2,6 +2,8 @@
   width: 100%;
   background: #76C3BD;
   text-align: center;
+  position: absolute;
+  height: calc(100% - 65px);
 }
 .main {
   max-width:  80%;
@@ -152,5 +154,5 @@ input::-webkit-input-placeholder {
   .nl-form {
     font-size: 2em;
   }
-  
+
 }

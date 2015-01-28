@@ -18,21 +18,19 @@
   border-radius: 5px;
   padding: 5px;
   border: 1px solid white;
+  transition: background-color 0.7s ease-in-out;
+
 }
 
 .user-menu div:hover {
   cursor: pointer;
   background-color: #34495e;
-  transition: background-color 0.7s ease-in-out;
 }
 
 .user-content {
-  right: 0;
-  top: 65;
-  position: absolute;
-  width: 65%;
-  height: 70%;
-  // border: 1px solid white;
+  float: right;
+  width: calc(100% - 350px);
+  height: 100%;
 }
 
 #profile-pic {
