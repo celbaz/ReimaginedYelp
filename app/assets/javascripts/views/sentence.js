@@ -17,5 +17,8 @@ YelpClone.Views.SentenceIndex = Backbone.View.extend({
 
   renderSearchQuery: function () {
     console.log("You have a search query to implement");
+    // collection form info
+    // navigate to  search  
+    //
   }
 });

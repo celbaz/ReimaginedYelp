@@ -5,6 +5,10 @@ YelpClone.Views.Search = Backbone.CompositeView.extend({
   renderTemplate: JST['search/results'],
   listTemplate  : JST['search/list'],
 
+  events: {
+    'click .modal-close': 'closeQuickView'    
+  },
+
   render: function () {
     var renderedContent = this.template();
     // console.log("hello")
@@ -15,6 +19,10 @@ YelpClone.Views.Search = Backbone.CompositeView.extend({
     this.addSubview('#sidebar-info', sidesearch);
     YelpClone.router.$rootEl.addClass("maps");
     return this;
+  },
+
+  closeQuickView: function () {
+    $('.cd-panel').removeClass("is-visible");
   },
 
   remove: function () {

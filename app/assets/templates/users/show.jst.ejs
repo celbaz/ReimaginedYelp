@@ -30,7 +30,9 @@
           Location: <%= user.escape("location") != "" ? user.escape("location") : "ADD IT" %>
         </div>
     </div>
+    <% if (YelpClone.currentUser.isSignedIn() ) { %>
     <input type="button" class="edit-user" value="Edit">
+    <% } %>
   </form>
 
 </div>

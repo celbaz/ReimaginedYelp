@@ -1,0 +1,25 @@
+<p class="modal-close">
+x
+</p>
+<div id="quick-view">
+  <h4><%= restaurant.get("name") %></h4>
+  <div id="place-info">
+    <li>Cuisine: <%= restaurant.get("cuisine") %></li>
+    <li>Address:
+      <%= restaurant.get("street") %>
+      <%= restaurant.get("city") %>,
+      <%= restaurant.get("state") %>
+      <%= restaurant.get("zipcode") %>
+    </li>
+    <li>Phone-Number: <%= restaurant.get("phone_number") %></li>
+  </div>
+</div>
+
+<form id="form_id" action="index.html" method="post">
+
+</form>
+
+<hr>
+<ul>
+  Reviews
+</ul>

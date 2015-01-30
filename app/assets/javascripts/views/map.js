@@ -21,6 +21,7 @@ YelpClone.Views.Map = Backbone.View.extend({
     });
     YelpClone.map.locate();
   },
+  
   render: function () {
     YelpClone.router.map = this;
     return this;

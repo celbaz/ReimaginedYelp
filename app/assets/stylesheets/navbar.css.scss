@@ -42,7 +42,7 @@
   padding: 10px;
   margin: 12px;
   margin-right: 20px;
-  border-radius: 15px;
+  border-radius: 5px;
   border: 1px solid #eee;
   transition: background-color 0.8s;
 }
@@ -102,10 +102,10 @@ input[type="submit"] {
   cursor: pointer;
   color: gray;
 }
+
 .modal-close:hover {
   color: black;
 }
-
 
 .submit-sign {
   position: relative;

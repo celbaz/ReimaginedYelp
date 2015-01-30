@@ -26,10 +26,12 @@
 .cd-panel-container {
   /*...*/
   position: fixed;
-  width: 90%;
-  height: 100%;
-  top: 0;
+  width: 300px;
+  height: calc(100% - 65px);
+  bottom: 0;
   right: 0;
+  background: #76C3BD;
+  opacity: 0.8;
 
   transition-property: transform;
   transition-duration: 0.3s;

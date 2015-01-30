@@ -1,5 +1,14 @@
+<hr>
 <ol>
+  <% if (places.length > 0) { %>
   <% places.each( function(place) { %>
-    <li class="list-place" data-id="<%= place.id %>"><%= place.escape("name") %> cuisine: <%= place.escape("cuisine") %></li>
+    <li class="list-place" data-id="<%= place.id %>">
+    <%= place.escape("name") %>
+    cuisine: <%= place.escape("cuisine") %></li>
     <% }); %>
+  <% } else { %>
+    <p style="text-align: center; font-size: 36px;">
+      No Results
+    </p>
+  <% } %>
 </ol>

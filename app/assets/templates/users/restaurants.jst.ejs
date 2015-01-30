@@ -1,6 +1,9 @@
-<div id="addplace">
-  Create A Restaurant
-</div>
+<% if (YelpClone.currentUser.isSignedIn() ) { %>
+  <div id="addplace">
+    Create A Restaurant
+  </div>
+<% } %>
+
 
 
 <% places.each( function(place){ %>

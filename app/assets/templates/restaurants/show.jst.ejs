@@ -1,37 +1,8 @@
-<style media="screen">
-#map {
-  margin: 250px;
-  float:right;
-  width: 60%;
-  height: 400px;
-}
-</style>
 
-<div id='map'></div>
+<ul>
+  <% for(i in restaurant.attributes) { %>
 
-<script charset="utf-8">
+    <li> <%= i %> : <%= restaurant.escape(i) %>  </li>
+    <% } %>
 
-L.mapbox.featureLayer({
-  // this feature is in the GeoJSON format: see geojson.org
-  // for the full specification
-  type: 'Feature',
-  geometry: {
-    type: 'Point',
-    // coordinates here are in longitude, latitude order because
-    // x, y is the standard for GeoJSON and many format
-    coordinates: [
-    parseFloat(<%= place.escape("longitude") %>),
-    parseFloat(<%= place.escape("latitude") %>)
-    ]
-  },
-  properties: {
-    title: '<%= place.escape("title") %>',
-    description: '<%= place.escape("title") %>',
-    // one can customize markers by adding simplestyle properties
-    // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-    'marker-size': 'large',
-    'marker-color': '#BE9A6B',
-    'marker-symbol': 'restaurant'
-  }
-}).addTo(YelpClone.map);
-</script>
+  </ul>
