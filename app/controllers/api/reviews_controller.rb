@@ -4,7 +4,8 @@ module Api
 
     def create
       @review = Review.new(review_params)
-
+      puts "Hello"
+      puts params
       if @review.save
         render :json => @review
       else
@@ -16,7 +17,7 @@ module Api
     def destroy
       @review = Review.find_by_id(params[:id])
       @review.destroy
-    end # do i need so rendering?
+    end
 
     private
     def review_params

@@ -2,24 +2,45 @@
 x
 </p>
 <div id="quick-view">
-  <h4><%= restaurant.get("name") %></h4>
+  <h4><%= restaurant.escape("name") %></h4>
   <div id="place-info">
-    <li>Cuisine: <%= restaurant.get("cuisine") %></li>
+    <li>Cuisine: <%= restaurant.escape("cuisine") %></li>
     <li>Address:
-      <%= restaurant.get("street") %>
-      <%= restaurant.get("city") %>,
-      <%= restaurant.get("state") %>
-      <%= restaurant.get("zipcode") %>
+      <%= restaurant.escape("street") %>
+      <%= restaurant.escape("city") %>,
+      <%= restaurant.escape("state") %>
+      <%= restaurant.escape("zipcode") %>
     </li>
-    <li>Phone-Number: <%= restaurant.get("phone_number") %></li>
+    <li>Phone-Number: <%= restaurant.escape("phone_number") %></li>
   </div>
 </div>
 
-<form id="form_id" action="index.html" method="post">
-
-</form>
-
 <hr>
-<ul>
-  Reviews
-</ul>
+ <div class="group scrolled">
+
+    <form class="create-review">
+      <h4>Add a Review</h4>
+      <label for="title">Title: <input type="text" name="review[title]" place-holder="(Optional)" value=""></label>
+      <label for="Rating">
+        <select name="review[rating]">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </label>
+      <h5 class="asdfasdf">Description: </h5>
+        <textarea class="text-des" type="text" name="review[body]"></textarea>
+      <input type="hidden" name="review[place_id]" value="<%= restaurant.id %>">
+      <input type="submit" value="Add Review">
+    </form>
+
+  <hr>
+    <h4>Reviews</h4>
+  <ul class="review-list">
+    <%= restaurant.reviews %>
+
+  </ul>
+
+</div>

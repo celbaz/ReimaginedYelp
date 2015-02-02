@@ -6,7 +6,9 @@ YelpClone.Views.Search = Backbone.CompositeView.extend({
   listTemplate  : JST['search/list'],
 
   events: {
-    'click .modal-close': 'closeQuickView'    
+    'click .modal-close': 'closeQuickView' ,
+    'submit .create-review': 'createReview',
+
   },
 
   render: function () {
@@ -28,6 +30,32 @@ YelpClone.Views.Search = Backbone.CompositeView.extend({
   remove: function () {
     YelpClone.router.$rootEl.removeClass("maps");
     Backbone.CompositeView.prototype.remove.call(this);
-  }
+  },
+
+  createReview: function (event) {
+    event.preventDefault();
+    var $target = $(event.target);
+    var review = $target.serializeJSON().review;
+    console.log(review);
+
+    if ( YelpClone.currentUser.isSignedIn() ) {
+
+      review.user_id = YelpClone.currentUser.id;
+      review.place_id = parseInt(review.place_id);
+      review.rating = review.rating;
+      console.log(review);
+      var rev = new YelpClone.Models.Review().set(review);
+
+      rev.save({}, {
+        success: function () {
+          console.log("Saved!");
+          // use jquery to append value
+        }
+      });
+
+    } else {
+      $('.modal-signin a').trigger('click');
+    }
+  },
 
 });

@@ -1,1 +1,3 @@
-YelpClone.Models.Review = Backbone.Model.extend({});
+YelpClone.Models.Review = Backbone.Model.extend({
+  urlRoot: "api/reviews/"
+});

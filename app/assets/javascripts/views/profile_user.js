@@ -46,6 +46,7 @@ YelpClone.Views.UserShow = Backbone.View.extend({
   saveRest: function () {
     event.preventDefault();
     var formData = $(".user-content").serializeJSON().place, that = this;
+    formData.cuisine = formData.cuisine.toUpperCase();
     var rest = new YelpClone.Models.Restaurant().set(formData);
     rest.save({}, {
       success: function () {

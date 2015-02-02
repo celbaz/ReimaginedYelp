@@ -3,10 +3,62 @@
   margin: 5px;
   margin-top: 40px;
   text-align: center;
+  /*color: white;*/
 }
 
 #place-info {
   margin: 5px;
   text-decoration: none;
   list-style: none;
+}
+
+.create-review  h4 {
+  text-align: center;
+  font-size: 23px;
+  margin: auto;
+  margin-bottom: 8px;
+}
+
+
+.create-review input[type='submit'] {
+  padding: 10px 80px;
+  margin-top: 0;
+}
+
+.asdfasdf {
+  margin: 5px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.scrolled {
+  overflow: scroll;
+}
+
+.create-review select {
+  font-size: 22px;
+  border: 2px solid #3498db;
+}
+
+.create-review input[type="text"] {
+  margin: 5px;
+  padding: 5px 0px;
+  background: white;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid #3498db;
+}
+
+textarea {
+  -webkit-appearance: none;
+  width: 240px;
+  height: 100px;
+  border-radius: 3px;
+  border: 3px solid #3498db;
+  margin: 10px 18px;
+  font-size: 16px;
+}
+
+.create-review label {
+    font-size: 18px;
 }

@@ -13,17 +13,15 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
   },
 
   events: {
-    'submit': 'runSearch',
-    'submit .nearme': 'locates',
+    'submit #search-form': 'runSearch',
     'click .list-place': 'createQuickView',
-    'dblclick .list-place': 'fullRestView',
+    // 'hover .list-place': 'switchQuickView'
   },
 
   createQuickView: function (event) {
     var id = $(event.target).attr("data-id");
-    var model = YelpClone.places.getOrFetch(id);
+    var model = this.restaurants.get(id);
 
-    // inject content and then
     var quickview = $('.cd-panel');
     var renderedContent = this.quickViewTemplate({
         restaurant : model
@@ -37,14 +35,18 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
     }
   },
 
-  fullRestView: function (event) {
-    var id = $(event.target).attr("data-id");
-    var model = YelpClone.places.getOrFetch(id);
-    var renderedContent = this.restaurantTemplate({
-      restaurant : model
-    });
-    $('#map-show').html(renderedContent);
-  },
+  // switchQuickView: function (event) {
+  //   var id = $(event.target).attr("data-id");
+  //   var model = this.restaurants.get(id);
+  //   console.log("Helloi");
+  //   // inject content and then
+  //   var renderedContent = this.quickViewTemplate({
+  //       restaurant : model
+  //   });
+  //   $(".cd-panel-content").html(renderedContent);
+  // },
+
+
 
   render: function () {
     var renderedContent = this.template({});
@@ -53,17 +55,21 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
   },
 
   runSearch: function (event) {
+
+    // removes pins from last search
     if(this.currentLayer){
-      this.currentLayer.removeLayer(YelpClone.map);
+      YelpClone.map.removeLayer(this.currentLayer);
     }
     event.preventDefault();
     var formData = $("#search-form").serializeJSON().place;
-    if (formData.location === ""){
+
+    if ( formData.location === "" ) {
       formData.location = YelpClone.CurrentLocation;
     }
+
     this.restaurants.fetch({
       data: formData
-    }); //add to collection once fetched
+    });
   },
 
   renderResults: function() {
@@ -85,67 +91,34 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
         },
         properties: {
           title: place.escape("name"),
-          // address: place.escape("description"),
           id: place.id,
           cuisine: place.escape("cuisine"),
-          // photo_url: location.escape("photo_url"),
-          // price: location.escape("price"),
           'marker-size': 'large',
           'marker-color': '#e67e22',
           'marker-symbol': 'restaurant'
         }
       });
-      // var marker = new L.marker([place.get("latitude"),
-      // place.get("longitude")], {
-      //   icon: L.mapbox.marker.icon({
-      //     'marker-size': 'large',
-      //     'marker-symbol': 'restaurant',
-      //     'marker-color': '#e67e22'
-      //   })}
-      // ).addTo(YelpClone.map).bindPopup(place.get("name"));
     });
-    // var renderedContent = this.resultTemplate({
-    //   places: this.restaurants
-    // });
+
     featureLayer.setGeoJSON(geoJSON);
+    var $ul = $("#results-are-nice");
+    $ul.html("");
 
     featureLayer.eachLayer( function (layer) {
-    var $ul = $("#results-are-nice");
-    // $ul.addClass("group");
-    var $li = $('<li>');
-    $li.html(layer.feature.properties.title);
-    $li.addClass("list-place");
-    // var $a =  $('<a>');
-    // var $img = $('<img>');
-    // $img.attr("src", layer.feature.properties.photo_url);
-    // $a.attr("href", "#/locations/" + layer.feature.properties.id);
-    // $a.attr("class", "listing");
-    // $a.html($img);
-    //
-    // var $div = $('<div>');
-    // $div.attr("class", "listing-info");
-    //
-    // var $h4 = $('<h4>');
-    // var $h5 = $('<h5>');
-    // $h4.html(layer.feature.properties.title);
-    // $h5.html("$" + layer.feature.properties.price);
-    // $div.append($h4);
-    //
-    // $li.html($a);
-    // $li.append($h5);
-    // $li.append($div);
-    $li.on("mouseenter", function(event) {
-      // console.log(layer.feature.properties['marker-color'])
-      YelpClone.map.panTo(layer.getLatLng());
-      // layer.feature.properties['marker-color'] = "#ccc";
-      // layer.addTo(YelpClone.map);
-    })
-    $ul.append($li);
+
+      var $li = $('<li>');
+      $li.html(layer.feature.properties.title);
+      $li.addClass("list-place");
+      $li.attr('data-id', layer.feature.properties.id);
+
+      $li.on("mouseenter", function(event) {
+        YelpClone.map.panTo(layer.getLatLng());
+      })
+      $ul.append($li);
   });
 
+  this.currentLayer = featureLayer;
   YelpClone.map.fitBounds(featureLayer.getBounds());
-}
-  //   this.currentLayer = featureLayer;
-  // //   $("#results-are-nice").html(renderedContent);
-  // // }
+},
+
 });
