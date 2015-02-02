@@ -49,7 +49,14 @@ YelpClone.Views.Search = Backbone.CompositeView.extend({
       rev.save({}, {
         success: function () {
           console.log("Saved!");
-          // use jquery to append value
+          var $li = $('<li>');
+          var $div = $('<div>');
+          $div.addClass('title-rev').text(review.title);
+          $li.append($div);
+          $div = $('<div>');
+          $div.addClass('body-rev').text(review.body);
+          $li.append($div);
+          $('.review-list').prepend($li);
         }
       });
 

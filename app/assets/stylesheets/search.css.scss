@@ -85,6 +85,17 @@ hr {
   font-weight: 100;
 }
 
+.list-place {
+  margin: 5px 10px;
+  font-size: 18px;
+  transition: .3s;
+}
+
+.list-place:hover {
+  color: #3498db;
+  font-weight: 400;
+}
+
 input[type='submit'] {
   -webkit-appearance: none;
   float: right;

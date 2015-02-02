@@ -37,10 +37,19 @@ x
     </form>
 
   <hr>
-    <h4>Reviews</h4>
+  <h4>Reviews</h4>
   <ul class="review-list">
-    <%= restaurant.reviews %>
 
+    <% for( i in reviews) { %>
+        <li>
+          <div class="title-rev">
+            <%= reviews[i].title %>
+          </div>
+          <div class="body-rev">
+            <%= reviews[i].body %>
+          </div>
+        </li>
+    <% } %>
   </ul>
 
 </div>

@@ -24,7 +24,8 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
 
     var quickview = $('.cd-panel');
     var renderedContent = this.quickViewTemplate({
-        restaurant : model
+        restaurant : model,
+        reviews : model.get("reviews")
     });
 
     if(quickview.hasClass("is-visible")) {
@@ -55,12 +56,13 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
   },
 
   runSearch: function (event) {
+    event.preventDefault();
 
     // removes pins from last search
     if(this.currentLayer){
       YelpClone.map.removeLayer(this.currentLayer);
     }
-    event.preventDefault();
+
     var formData = $("#search-form").serializeJSON().place;
 
     if ( formData.location === "" ) {
@@ -101,7 +103,7 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
     });
 
     featureLayer.setGeoJSON(geoJSON);
-    var $ul = $("#results-are-nice");
+    var $ul = $(".list-o-results");
     $ul.html("");
 
     featureLayer.eachLayer( function (layer) {
@@ -113,6 +115,7 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
 
       $li.on("mouseenter", function(event) {
         YelpClone.map.panTo(layer.getLatLng());
+        // event.featureLayer.feature.properties['marker-color'] = '#ff8888';
       })
       $ul.append($li);
   });

@@ -3,7 +3,7 @@
   <div class="main clearfix">
     <form id="nl-form" class="nl-form">
       I want to eat at
-      <select>
+      <select name="search[rating]">
         <option value="Any" selected>Any</option>
         <option value="A" >A</option>
         <option value="B">B</option>
@@ -11,21 +11,21 @@
         <option value="P">P</option>
       </select>
       <br/> rated restaurant, I recently ate
-      <select>
-        <option value="1" selected>American</option>
-        <option value="2">Chinese</option>
-        <option value="3">Indian</option>
-        <option value="4">Italian</option>
-        <option value="5">Mexican</option>
-        <option value="6">Thai</option>
+      <select  name="search[cuisine]" >
+        <option value="AMERICAN" selected>American</option>
+        <option value="CHINESE">Chinese</option>
+        <option value="INDIAN">Indian</option>
+        <option value="ITALIAN">Italian</option>
+        <option value="MEXICAN">Mexican</option>
+        <option value="THAI">Thai</option>
       </select>, and I would like it to be within a
-      <select>
+      <select  name="search[distance]">
         <option value="0.5">.5 Mile</option>
         <option value="1">1 Mile</option>
         <option value="2" selected>2 Mile</option>
         <option value="4">4 Mile</option>
       </select> radius of
-      <input class='form-text' type="text" value="" placeholder="Mannhattan, NY"/>
+      <input class='form-text' type="text"  name="search[location]" value="" placeholder="Mannhattan, NY"/>
       <div class="nl-submit-wrap">
         <button class="nl-submit" type="submit">Find Me Places</button>
       </div>

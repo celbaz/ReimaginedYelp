@@ -15,10 +15,11 @@ YelpClone.Views.SentenceIndex = Backbone.View.extend({
     return this;
   },
 
-  renderSearchQuery: function () {
-    console.log("You have a search query to implement");
-    // collection form info
-    // navigate to  search  
-    //
+  renderSearchQuery: function (event) {
+    event.preventDefault();
+    var query = $('#nl-form');
+    var result = $('#nl-form').serializeJSON().search;
+    console.log(result);
+
   }
 });
