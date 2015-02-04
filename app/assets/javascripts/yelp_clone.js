@@ -7,6 +7,7 @@ window.YelpClone = {
 
     this.currentUser = new YelpClone.Models.CurrentUser();
     this.currentUser.fetch();
+    this.sentenceQuery = "";
 
     // Initializing Map Token
     L.mapbox.accessToken = YelpClone.MapboxToken;

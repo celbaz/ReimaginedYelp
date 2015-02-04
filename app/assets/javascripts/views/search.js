@@ -11,6 +11,7 @@ YelpClone.Views.Search = Backbone.CompositeView.extend({
 
   },
 
+
   render: function () {
     var renderedContent = this.template();
     // console.log("hello")

@@ -10,6 +10,10 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
     this.restaurants = new YelpClone.Collections.Restaurants();
     this.restaurants.url = "api/restaurants/search";
     this.listenTo(this.restaurants, 'sync', this.renderResults);
+    if ( YelpClone.sentenceQuery !== "") {
+      console.log(YelpClone.sentenceQuery);
+      this.runSentenceSearch();
+    }
   },
 
   events: {
@@ -72,6 +76,20 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
     this.restaurants.fetch({
       data: formData
     });
+  },
+
+  runSentenceSearch: function() {
+    var query = YelpClone.sentenceQuery;
+    YelpClone.sentenceQuery = "";
+
+    if ( query.location === "" ) {
+      query.location = "Mannhattan, NY";
+    }
+
+    // make a seperate search function in rails
+    // this.restaurants.fetch({
+    //   data: query
+    // });
   },
 
   renderResults: function() {
