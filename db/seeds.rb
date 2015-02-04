@@ -9,7 +9,7 @@
 
 
 require 'yaml'
-places = YAML.load_file('seeder.yml')
+places = YAML.load_file("#{Rails.root}/db/seeder.yml")
 puts places[i]
 places.shuffle!
 
