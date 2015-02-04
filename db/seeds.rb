@@ -19,11 +19,11 @@ nyhealth  = User.new({username: "foodinspect@nyc.gov",
 nyhealth.save!
 
 
-places = places[0...2005]
+places = places[0...5000]
 
 places.each_index do |i|
 
-  sleep(5) if i + 1 % 5 == 0
+  sleep(5) if (i + 1) % 5 == 0
 
   temp = Restaurant.new( {user_id: nyhealth.id , name: places[i][1],
      street: places[i][3] + places[i][4], city: "New York", state: "New York",
