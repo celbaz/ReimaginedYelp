@@ -10,7 +10,6 @@
 
 require 'yaml'
 places = YAML.load_file("#{Rails.root}/db/seeder.yml")
-puts places[i]
 places.shuffle!
 
 nyhealth  = User.new({username: "foodinspect@nyc.gov",
@@ -26,7 +25,7 @@ places.each_index do |i|
 
   sleep(5) if i % 4
 
-  temp = Restaurant.new( {user_id: 3 , name: places[i][1],
+  temp = Restaurant.new( {user_id: nyhealth.id , name: places[i][1],
      street: places[i][3] + places[i][4], city: "New York", state: "New York",
      food_inspection: places[i][13], cuisine: places[i][7].upcase, zipcode: places[i][5] })
 
