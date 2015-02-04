@@ -26,7 +26,7 @@ places.each_index do |i|
   sleep(5) if (i + 1) % 5 == 0
 
   temp = Restaurant.new( {user_id: nyhealth.id , name: places[i][1],
-     street: places[i][3] + places[i][4], city: "New York", state: "New York",
+     street: places[i][3] + " " + places[i][4], city: "New York", state: "New York",
      food_inspection: places[i][13], cuisine: places[i][7].upcase,
       zipcode: places[i][5], phone_number: places[i][6].to_s })
 
