@@ -16,18 +16,10 @@ ActiveRecord::Schema.define(version: 20150204220254) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "pg_search_documents", force: true do |t|
-    t.text     "content"
-    t.integer  "searchable_id"
-    t.string   "searchable_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "restaurants", force: true do |t|
     t.integer  "user_id",         null: false
     t.string   "name",            null: false
-    t.string   "food_inspection", null: false
+    t.string   "food_inspection"
     t.float    "longitude",       null: false
     t.float    "latitude",        null: false
     t.string   "zipcode",         null: false

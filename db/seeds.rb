@@ -19,7 +19,7 @@ nyhealth  = User.new({username: "foodinspect@nyc.gov",
 nyhealth.save!
 
 
-places = places[0...2000]
+places = places[0...2005]
 
 places.each_index do |i|
 
@@ -31,5 +31,5 @@ places.each_index do |i|
       zipcode: places[i][5], phone_number: places[i][6].to_s })
 
   temp.save!
-
+  puts 1
 end
