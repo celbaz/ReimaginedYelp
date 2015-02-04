@@ -1,5 +1,5 @@
 class Restaurant < ActiveRecord::Base
-  validates :name, :food_inspection, presence: true
+  validates :name, presence: true
   validates :user_id, :street, :zipcode, :city, :state, presence: true
   # validates :food_inspection, inclusion: ["A", "B", "C", "P", "Z"]
 
