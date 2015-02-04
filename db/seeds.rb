@@ -23,7 +23,7 @@ places = places[0...2000]
 
 places.each_index do |i|
 
-  sleep(5) if i % 4
+  sleep(5) if i + 1 % 5 == 0
 
   temp = Restaurant.new( {user_id: nyhealth.id , name: places[i][1],
      street: places[i][3] + places[i][4], city: "New York", state: "New York",
