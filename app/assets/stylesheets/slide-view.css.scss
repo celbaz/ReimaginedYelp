@@ -30,6 +30,7 @@
   height: calc(100% - 65px);
   bottom: 0;
   right: 0;
+  top: 65px;
   background: #76C3BD;
   opacity: 0.8;
 
@@ -43,4 +44,8 @@
 .is-visible .cd-panel-container {
   transform: translate3d(0, 0, 0);
   transition-delay: 0s;
+}
+
+.cd-panel-content {
+  height: 100%;
 }

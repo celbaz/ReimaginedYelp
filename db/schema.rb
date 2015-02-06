@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20150204220254) do
     t.integer  "user_id",         null: false
     t.string   "name",            null: false
     t.string   "food_inspection"
-    t.float    "longitude",       null: false
-    t.float    "latitude",        null: false
+    t.float    "longitude"
+    t.float    "latitude"
     t.string   "zipcode",         null: false
     t.string   "street",          null: false
     t.string   "city",            null: false

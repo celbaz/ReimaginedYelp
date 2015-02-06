@@ -1,13 +1,16 @@
 <form id="search-form" class="group">
-    <label for="Find"> Find
-      <input type="text" name="place[cuisine]" placeholder="Hungry for?" value="">
+
+    <label for="Find">
+      <span>Find</span>
+    <input type="text" name="place[cuisine]" placeholder="Hungry for?" value="">
     </label>
 
-    <label for="near"> Near
+    <label for="near">
+      <span>Near</span>
       <input type="text" name="place[location]" placeholder="Location / Empty For GPS" value="">
     </label>
 
-    <label for=""> Food Inspection Rating
+    <label for=""> Inspection Rating
       <select name="place[rating]">
         <option value="Any">Any</option>
         <option value="A">A</option>
@@ -25,6 +28,15 @@
         <option value="2">2 miles</option>
         <option value="4">4 miles</option>
         <option value="8">8 miles</option>
+      </select>
+    </label>
+
+    <label for=""> Results
+      <select name="place[limit]">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
       </select>
     </label>
     <input type="submit"  value="Find Results">

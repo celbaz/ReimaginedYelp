@@ -68,11 +68,10 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
     }
 
     var formData = $("#search-form").serializeJSON().place;
-
     if ( formData.location === "" ) {
       formData.location = YelpClone.CurrentLocation;
     }
-
+    formData.kind = "search";
     this.restaurants.fetch({
       data: formData
     });
@@ -85,11 +84,11 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
     if ( query.location === "" ) {
       query.location = "Mannhattan, NY";
     }
-
+    query.kind = "sentence";
     // make a seperate search function in rails
-    // this.restaurants.fetch({
-    //   data: query
-    // });
+    this.restaurants.fetch({
+      data: query
+    });
   },
 
   renderResults: function() {

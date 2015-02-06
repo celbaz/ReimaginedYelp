@@ -2,15 +2,26 @@
   <div id="addplace">
     Create A Restaurant
   </div>
+  <hr>
 <% } %>
 
-
+  <h3 class="restur">Manage Restaurants</h3>
 
 <% places.each( function(place){ %>
-  <div class="delete-rest" data-id="<%= place.escape("user_id") %>">
-    <% for( i in place.attributes){ %>
-      <p><%= i %> : <%= place.escape(i) %></p>
+  <div class="rest-wrapper group">
+      <div class ="manage-rest">
+        <% for( i in place.attributes){ %>
+          <p><%= i %> : <%= place.escape(i) %></p>
 
+          <% } %>
+      </div>
+      <% if (YelpClone.currentUser.isSignedIn() ) { %>
+
+      <button class="rest-edit" name="edit">Edit</button>
+      <button class="delete-rest rest-edit" data-id="<%= place.escape("user_id") %>"
+        name="Delete">Delete</button>
       <% } %>
+
   </div>
+
   <% }); %>

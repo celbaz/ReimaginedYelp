@@ -29,16 +29,53 @@
 
 .user-content {
   float: right;
-  width: calc(100% - 350px);
+  width: calc(100% - 300px);
   height: 100%;
+  top: 65px;
+  left: 300px;
+  position: absolute;
+  background: wheat;
+  overflow: scroll;
 }
 
 #profile-pic {
   width: 250px;
-  border: 2px solid white;
+  border: 6px solid #95a5a6;
+  margin: 30px auto;
+  display: block;
+  border-radius: 50%;
+  background: #eee;
+}
+
+.user-name {
+  font-size: 36px;
+  background: wheat;
+}
+
+.profile-pic-background {
+  background: wheat;
   margin-top: 30px;
 }
 
-#user-name {
-  font-size: 36px;
+#name-text {
+  text-align: center;
+}
+
+.edit-user {
+  -webkit-appearance: none;
+  // display: block;
+  margin: 10px 30px;
+  padding: 10px 100px;
+  background: #3498db;
+  font-size: 16px;
+  border-radius: 3px;
+  color: #eee;
+  border: 2px solid #3498db;
+  transition: .7s;
+}
+
+.edit-user:hover {
+  cursor: pointer;
+  background: #2c3e50;
+  color: #3498db;
 }

@@ -12,7 +12,7 @@
   list-style: none;
 }
 
-.create-review  h4 {
+.scrolled  h4 {
   text-align: center;
   font-size: 23px;
   margin: auto;
@@ -33,6 +33,7 @@
 
 .scrolled {
   overflow: scroll;
+  height: calc(100% - 174px);
 }
 
 .create-review select {
@@ -71,4 +72,13 @@ textarea {
 #title-rev {
   margin-left: 15px;
   font-weight: bold;
+}
+
+.body-rev {
+  margin: 15px;
+  text-align: justify;
+  border-bottom: 1px solid white;
+  border-radius: 3px;
+  padding: 10px;
+  text-indent: 40px;
 }

@@ -47,8 +47,15 @@ module Api
             location = params[:location]
         end
 
-        @search_results =  Restaurant.search(params[:cuisine], location,
-        params[:rating], params[:distance])
+        if (params[:kind] == "sentence")
+          @search_results =  Restaurant.sentence(params[:cuisine], location,
+          params[:rating], params[:distance])
+        else
+          @search_results =  Restaurant.search(params[:cuisine], location,
+          params[:rating], params[:distance], params[:limit])
+        end
+
+        @search_results
       end
 
       def location

@@ -20,10 +20,21 @@ class Restaurant < ActiveRecord::Base
     "#{self.street} #{self.city} #{self.state} #{self.zipcode} U.S.A."
   end
 
-  def self.search(keyword, location, rating, distance)
-    result = self.near(location, distance)
+  def self.search(keyword, location, rating, distance, limit)
+    result = self.near(location, distance).limit(limit)
     if keyword.present?
-      result = result.where("(name LIKE :key) OR (cuisine LIKE :key)",key: "%#{keyword}")
+      result = result.where("(name LIKE :key) OR (cuisine LIKE :key)",key: "%#{keyword.upcase}")
+    end
+    if rating != "Any"
+      result = result.where(rating: rating)
+    end
+    result
+  end
+
+  def self.sentence(keyword, location, rating, distance)
+    result = self.near(location, distance).limit(50)
+    if keyword.present?
+      result = result.where("(cuisine NOT LIKE :key)",key: "%#{keyword}")
     end
     if rating != "Any"
       result = result.where(rating: rating)

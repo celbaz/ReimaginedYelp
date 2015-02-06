@@ -38,6 +38,7 @@
   margin: auto;
   margin-top: 10px;
   float: left;
+  padding-left: 22px;
   font-size: 24px;
   color: #3498db;
 }
@@ -83,6 +84,8 @@ hr {
   font-family: "Lato";
   font-size: 16px;
   font-weight: 100;
+  height: calc(100% - 375px);
+  position: relative;
 }
 
 .list-place {
@@ -100,7 +103,7 @@ input[type='submit'] {
   -webkit-appearance: none;
   float: right;
   display: block;
-  margin: 30px;
+  margin: 10px 30px;
   padding: 10px 100px;
   background: #3498db;
   font-size: 16px;
@@ -115,4 +118,24 @@ input[type='submit']:hover {
   cursor: pointer;
   background: #2c3e50;
   color: #3498db;
+}
+
+.list-o-results {
+  overflow: scroll;
+  height: 100%
+}
+
+
+#sidebar-info div:first-child {
+  height: 100%;
+}
+
+
+label > span {
+  padding-top: 15px;
+  display: inline-block;
+ }
+
+label:first-child  span{
+  padding-right: 6px;
 }

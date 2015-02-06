@@ -37,13 +37,18 @@ x
     </form>
 
   <hr>
+
   <h4>Reviews</h4>
   <ul class="review-list">
-
     <% for( i in reviews) { %>
         <li>
+
           <div class="title-rev">
-            <%= reviews[i].title %>
+            <% if( reviews[i].title !== "") {%>
+            Title: <%= reviews[i].title %>
+            <% } %>
+            Rating: <%= reviews[i].rating %>
+            posted <%= reviews[i].created_at %> ago
           </div>
           <div class="body-rev">
             <%= reviews[i].body %>
