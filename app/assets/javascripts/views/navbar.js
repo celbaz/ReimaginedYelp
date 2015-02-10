@@ -36,7 +36,7 @@ YelpClone.Views.NavBar = Backbone.View.extend({
     var $form = $("form");
     var userData = $form.serializeJSON().user;
     var newUser = new YelpClone.Models.User(userData);
-
+    console.log(newUser)
     newUser.save({}, {
       success: function(){
         YelpClone.currentUser.signIn(newUser);

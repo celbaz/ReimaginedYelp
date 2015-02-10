@@ -6,7 +6,12 @@
   <ul class="header-list group">
     <li class="sign-in">
       <a href="/#/users/<%= YelpClone.currentUser.id %>">
-        <i class="fa fa-user"></i> <%= YelpClone.currentUser.escape("username") %>
+        <i class="fa fa-user"></i>
+          <% if ( YelpClone.currentUser.escape("nickname") === '') { %>
+              <%= YelpClone.currentUser.escape("username") %>
+          <% } else { %>
+            <%= YelpClone.currentUser.escape("nickname") %>
+          <% } %>
       </a>
     </li>
     <li class="sign-out">Sign Out</li>
