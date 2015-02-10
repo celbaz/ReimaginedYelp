@@ -7,6 +7,7 @@ YelpClone.Views.NavBar = Backbone.View.extend({
     "click .modal-signin": "modalSignIn",
     "click .modal-signup": "modalSignUp",
     "submit #sign-up": "createNewUser",
+    "click .guest-account": "createGuestAccount",
     "submit #sign-in": "signInUser",
     "click .sign-out": "signOut"
   },
@@ -34,22 +35,65 @@ YelpClone.Views.NavBar = Backbone.View.extend({
     event.preventDefault();
     var $form = $("form");
     var userData = $form.serializeJSON().user;
-    var that = this;
-
     var newUser = new YelpClone.Models.User(userData);
+
     newUser.save({}, {
       success: function(){
-        console.log("Hello")
-        YelpClone.currentUser.signIn(userData);
-        YelpClone.currentUser.fetch();
-        // that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate("" , { trigger: true });
+        YelpClone.currentUser.signIn(newUser);
+        YelpClone.currentUser.fetch({
+          success: function () {
+            Backbone.history.navigate("#/users/" + YelpClone.currentUser.id , { trigger: true });
+          }
+        });
       },
       error: function(model, data){
-        alert("Form invalid. Let the user know what went wrong.");
-        console.log(data);
+        alert(data.responseText);
       }
     });
+  },
+
+  createGuestAccount: function () {
+    var text = "guest";
+    var possible = "abcdefghijklmnopqrstuvwxyz0123";
+
+    for (var i = 0; i < 6; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    text += "@demo.com"
+    var userData = {username: text, password: "guestlogin",
+                    nickname: "Guest User", description: "Thanks for stopping by!"};
+
+    var newUser = new YelpClone.Models.User(userData);
+    console.log(newUser)
+    newUser.save({}, {
+      success: function() {
+        alert("Welcome to the Guest Tour!" +
+          " Your password is: " + userData.password +
+          ". Your useremail is: " + userData.username + "."
+        );
+        // var restaurantData = {username: text, password: "guestlogin",
+        //                 nickname: "Guest User", description: "Thanks for stopping by!"};
+
+        // create restaurant and add reviews 1 from user and the other from user 1
+        // var newPlace = new YelpClone.Models.Restaurant(restaurantData);
+
+
+
+        YelpClone.currentUser.signIn(newUser);
+        YelpClone.currentUser.fetch({
+          success: function () {
+            Backbone.history.navigate("#/users/" + YelpClone.currentUser.id , { trigger: true });
+          },
+          error: function () {
+            alert("Randomly Generated User already exists");
+          }
+
+        });
+      }
+    });
+
+
   },
 
   signInUser: function (event) {

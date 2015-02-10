@@ -4,7 +4,7 @@
 
 .user-menu {
   width: 300px;
-  height: 100%;
+  height: calc(100% - 65px);
   position: absolute;
   background: #3498db;
   color: #eee;
@@ -30,7 +30,7 @@
 .user-content {
   float: right;
   width: calc(100% - 300px);
-  height: 100%;
+  height: calc(100% - 65px);
   top: 65px;
   left: 300px;
   position: absolute;

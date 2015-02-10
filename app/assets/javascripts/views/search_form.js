@@ -11,7 +11,6 @@ YelpClone.Views.SearchForm = Backbone.View.extend({
     this.restaurants.url = "api/restaurants/search";
     this.listenTo(this.restaurants, 'sync', this.renderResults);
     if ( YelpClone.sentenceQuery !== "") {
-      console.log(YelpClone.sentenceQuery);
       this.runSentenceSearch();
     }
   },

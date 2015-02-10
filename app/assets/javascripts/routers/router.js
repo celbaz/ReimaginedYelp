@@ -5,7 +5,6 @@ YelpClone.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'landingPage',
-    // 'restaurants': 'restPage',
     'users/:id': 'userPage',
     'search': 'searchPage',
     'sentence': 'sentencePage'
