@@ -1,5 +1,22 @@
-<ul>
-  <% for (i in user.attributes) { %>
-    <li><%= i %> : <%= user.escape(i) %></li>
+<div class="profile-pic-background">
+  <img id="profile-pic" height="250" src="<%= user.escape("image_url") %>" />
+</div>
+<div id="name-text">
+  <div id="name">
+      <div class="user-name">
+        <% if(user.escape("nickname") != "") { %>
+          Nickname: <%= user.escape("nickname") %>
+          <% } %>
+      </div>
+      <div class="user-name">
+        Email: <%= user.escape("username") %>
+        </div>
+      <div id="user-info">
+        About: <%= user.escape("description") != "" ? user.escape("description") : "ADD IT" %>
+        Location: <%= user.escape("location") != "" ? user.escape("location") : "ADD IT" %>
+      </div>
+  </div>
+  <% if (YelpClone.currentUser.isSignedIn() ) { %>
+  <input type="button" class="edit-user" value="Edit">
   <% } %>
-</ul>
+</div>
