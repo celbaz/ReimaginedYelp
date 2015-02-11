@@ -1,6 +1,7 @@
 YelpClone.Views.UserProfile = Backbone.View.extend({
 
   template: JST['users/profile'],
+  editTemplate: JST['users/edituser'],
 
   events: {
     'click .edit-user': 'editUser',
@@ -21,23 +22,24 @@ YelpClone.Views.UserProfile = Backbone.View.extend({
   },
 
   saveUser: function(event) {
+    console.log(this.model);
     event.preventDefault();
     var formData = $(".user-content").serializeJSON().user, that = this;
     this.model.set(formData);
+    console.log(this.model);
     this.model.save({}, {
       success: function () {
        delete that.model._picture;
-        Backbone.history.navigate("", {trigger: true});
+        Backbone.history.navigate("#/users/" + YelpClone.currentUser.id, {trigger: true});
       }
     });
   },
-
 
   editUser: function (event) {
     var renderedContent = this.editTemplate({
       user: this.model
     });
-    $(".user-content").html(renderedContent);
+    this.$el.html(renderedContent);
   },
 
   fileInputChange: function(event){
@@ -66,6 +68,5 @@ YelpClone.Views.UserProfile = Backbone.View.extend({
   _updatePreview: function(src){
     this.$el.find("#preview-post-image").attr("src", src);
   }
-
 
 });

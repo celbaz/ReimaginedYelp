@@ -5,18 +5,20 @@
     <!-- <img src="" width="250" id="preview-post-image"> -->
     <input type="file" name="user[image]" id="input-post-image">
     <div id="name">
-      <div id="user-name">
-        <label for="">Email
-          <input type="text" name="user[username]" value="<%= user.escape("username") %>">
-        </label>
-        <label for="">Nickname
+      <div id="user-text">
+        <label class="user-name">Nickname:
           <input type="text" name="user[nickname]" value="<%= user.escape("nickname") %>">
         </label>
-        </div>
-        <div id="user-info">
+        
+        <label class="user-name">Email:
+          <input type="text" name="user[username]" value="<%= user.escape("username") %>">
+        </label>
+
+        <div id="user-info" class="user-name">
           About: <input type="text" name="user[description]" value="<%= user.escape("description")%>">
           Location: <input type="text" name="user[location]" value="<%= user.escape("location") %>">
         </div>
+      </div>
     </div>
     <input type="submit" class="save-user" value="Save">
   </form>
