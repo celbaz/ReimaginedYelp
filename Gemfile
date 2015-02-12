@@ -37,6 +37,7 @@ gem 'geocoder'
 
 #Used for pulling latest photos from restaurants
 # gem 'instagram'
+gem 'omniauth-instagram'
 # Use unicorn as the app server
 # gem 'unicorn'
 
