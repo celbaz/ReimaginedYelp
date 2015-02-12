@@ -8,7 +8,7 @@ YelpClone.Views.UserReviews = Backbone.View.extend({
 
   render: function () {
     var reviews = this.model.reviews();
-    var renderedContent = this.reviewTemplate({
+    var renderedContent = this.template({
       reviews: reviews
     });
     return this;

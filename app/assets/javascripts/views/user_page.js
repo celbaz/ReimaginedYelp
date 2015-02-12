@@ -29,8 +29,8 @@ YelpClone.Views.UserComposite = Backbone.CompositeView.extend({
 
   renderReviews: function () {
     var reviewsView = new YelpClone.Views.UserReviews( {user: this.model} );
-    this.removeSubview('.user-content', this.subviews('.user-content'));
-    this.formerView = UserReviews;
+    this.removeSubview('.user-content', this.formerView);
+    this.formerView = reviewsView;
     this.addSubview('.user-content', reviewsView);
     return this;
   },
