@@ -1,28 +1,28 @@
 <form id="restaurant-form">
 
   <label>Restaurant Name:
-    <input type="text" name="place[name]" value="">
+    <input type="text" name="place[name]" value="<%= rest.escape("name") %>">
   </label>
   <label>Restaurant Inspection:
-    <input type="text" name="place[food_inspection]" value="">
+    <input type="text" name="place[food_inspection]" value="<%= rest.escape("food_inspection") %>">
   </label>
   <label>Cuisine:
-    <input type="text" name="place[cuisine]" value="">
+    <input type="text" name="place[cuisine]" value="<%= rest.escape("cuisine") %>">
   </label>
   <label>Street:
-    <input type="address" name="place[street]" value="">
+    <input type="address" name="place[street]" value="<%= rest.escape("street") %>">
   </label>
   <label>City:
-    <input type="text" name="place[city]" value="">
+    <input type="text" name="place[city]" value="<%= rest.escape("city") %>">
   </label>
   <label>State:
-    <input type="text" name="place[state]" value="">
+    <input type="text" name="place[state]" value="<%= rest.escape("state") %>">
   </label>
   <label>Zipcode:
-    <input type="text" name="place[zipcode]" value="">
+    <input type="text" name="place[zipcode]" value="<%= rest.escape("zipcode") %>">
   </label>
   <label>Restaurant Phone Number:
-    <input type="text" name="place[phone_number]" value="">
+    <input type="text" name="place[phone_number]" value="<%= rest.escape("phone_number") %>">
   </label>
-  <input type="submit" class='create-rest' value="Create Restaurant">
+  <input type="submit" class='create-rest' data-id="<%= rest.escape("id") %>" value="Create Restaurant">
 </form>

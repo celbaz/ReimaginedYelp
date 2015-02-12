@@ -5,7 +5,7 @@ YelpClone.Views.UserComposite = Backbone.CompositeView.extend({
 
 
   initialize: function (){
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync change', this.render);
     this.formerView = null;
   },
 
@@ -23,7 +23,6 @@ YelpClone.Views.UserComposite = Backbone.CompositeView.extend({
     this.formerView = profileView;
     this.addSubview('.user-menu', sidebar);
     this.addSubview('.user-content', profileView);
-    console.log(this.subviews());
     return this;
 
   },

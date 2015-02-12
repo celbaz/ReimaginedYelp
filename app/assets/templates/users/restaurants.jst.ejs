@@ -1,4 +1,4 @@
-<% if (YelpClone.currentUser.isSignedIn() ) { %>
+<% if (userId === currentUser) { %>
   <div id="addplace">
     Create A Restaurant
   </div>
@@ -11,14 +11,15 @@
   <div class="rest-wrapper group">
       <div class ="manage-rest">
         <% for( i in place.attributes){ %>
-          <p><%= i %> : <%= place.escape(i) %></p>
-
+          <% if (i !== "user_id" && i !== "id") { %>
+            <p><%= i %> : <%= place.escape(i) %></p>
+          <% } %>
           <% } %>
       </div>
-      <% if (YelpClone.currentUser.isSignedIn() ) { %>
+      <% if (userId === currentUser) { %>
 
-      <button class="rest-edit" name="edit">Edit</button>
-      <button class="delete-rest rest-edit" data-id="<%= place.escape("user_id") %>"
+      <button class="rest-edit edit-clicked" data-id="<%= place.escape("id") %>" name="edit">Edit</button>
+      <button class="delete-rest rest-edit" data-id="<%= place.escape("id") %>"
         name="Delete">Delete</button>
       <% } %>
 

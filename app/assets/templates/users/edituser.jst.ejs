@@ -9,7 +9,7 @@
         <label class="user-name">Nickname:
           <input type="text" name="user[nickname]" value="<%= user.escape("nickname") %>">
         </label>
-        
+
         <label class="user-name">Email:
           <input type="text" name="user[username]" value="<%= user.escape("username") %>">
         </label>
@@ -20,5 +20,5 @@
         </div>
       </div>
     </div>
-    <input type="submit" class="save-user" value="Save">
+    <input type="submit" class="save-user"  data-id="<%= place.escape("id") %>" value="Save">
   </form>

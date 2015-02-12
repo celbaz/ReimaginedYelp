@@ -8,16 +8,20 @@ YelpClone.Views.UserRestaurants = Backbone.View.extend({
   },
 
   events: {
-    "click #addplace": 'renderEditRestaurant',
+    "click #addplace": 'createRest',
     'click .create-rest': 'saveRest',
-    'click .delete-rest': 'deleteRest'
+    'click .delete-rest': 'deleteRest',
+    'click .edit-clicked': 'editRest'
   },
 
   render: function () {
     var place = this.model.restaurants();
     var renderedContent = this.template({
-      places: place
+      places: place,
+      currentUser: YelpClone.currentUser.id,
+      userId: parseInt(this.model.id)
     });
+
     this.$el.html(renderedContent);
     return this;
   },
@@ -25,28 +29,66 @@ YelpClone.Views.UserRestaurants = Backbone.View.extend({
 
   deleteRest: function (event) {
     event.preventDefault();
-    var data = $(event.target).attr("data-id");
-    var user = new YelpClone.Models.Restaurant({id: data});
-    user.fetch();
-    user.destroy();
+    var data = $(event.currentTarget).attr("data-id");
+    var place = new YelpClone.Models.Restaurant({id: data});
+    var that = this;
+    place.fetch({
+      success: function () {
+        place.destroy();
+        that.model.fetch();
+      }
+    });
+  },
+
+  editRest: function (event) {
+    event.preventDefault();
+    var data = $(event.currentTarget).attr("data-id");
+    var place = new YelpClone.Models.Restaurant({id: data});
+    var that = this;
+    place.fetch({
+      success: function () {
+        var renderedContent = that.placeTemplate({rest: place});
+        that.$el.html(renderedContent);
+      }
+    });
+
   },
 
   saveRest: function () {
     event.preventDefault();
     var formData = $(".user-content").serializeJSON().place, that = this;
     formData.cuisine = formData.cuisine.toUpperCase();
-    var rest = new YelpClone.Models.Restaurant().set(formData);
-    rest.save({}, {
-      success: function () {
-        Backbone.history.navigate("", {trigger: true});
-      }
-    });
+    var data = $(event.target).attr("data-id"), that = this;
+    if (data === "") {
+
+      var rest = new YelpClone.Models.Restaurant().set(formData);
+      console.log(rest)
+      rest.save({}, {
+        success: function () {
+          that.model.fetch();
+        }
+      });
+    } else {
+      var place = new YelpClone.Models.Restaurant({id: data});
+
+      place.fetch({
+        success: function () {
+          place.set(formData);
+          place.save({}, {
+            success: function () {
+              that.model.fetch();
+            }
+          });
+        }
+      });
+    }
   },
 
-  renderEditRestaurant: function () {
-    var renderedContent = this.placeTemplate();
-    $(".user-content").html(renderedContent);
-  },
-
+  createRest: function () {
+    var place = new YelpClone.Models.Restaurant();
+    var renderedContent = this.placeTemplate({rest: place});
+    this.$el.html(renderedContent);
+    return this;
+  }
 
 });

@@ -8,5 +8,5 @@ end
 
 json.restaurants @user.restaurants do |place|
   json.(place, :name, :food_inspection, :cuisine, :street, :zipcode,
-  :city, :state, :phone_number, :user_id)
+  :city, :state, :phone_number, :user_id, :id)
 end
