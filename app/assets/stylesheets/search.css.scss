@@ -99,7 +99,7 @@ hr {
   font-weight: 400;
 }
 
-input[type='submit'] {
+input[type='submit'].buttons {
   -webkit-appearance: none;
   float: right;
   display: block;
@@ -114,7 +114,7 @@ input[type='submit'] {
 
 }
 
-input[type='submit']:hover {
+input[type='submit']:hover.buttons {
   cursor: pointer;
   background: #2c3e50;
   color: #3498db;

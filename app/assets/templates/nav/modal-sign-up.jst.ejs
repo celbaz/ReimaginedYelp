@@ -2,16 +2,16 @@
   <span class="modal-close js-hide-modal">x</span>
   <h1>Sign Up</h1>
   <form id="sign-up" class="modal-sign-form">
-    <label for="username">
+    <label class="group" for="username">
       Username (email) :
       <input type="email" name="user[username]" placeholder="Email">
     </label>
-    <label for="password">
+    <label  class="group" for="password">
       Password :
       <input type="password" name="user[password]" placeholder="Password">
     </label>
     <input class="submit-sign sign-upersons" type="submit" name="some_name" value="Sign Up">
   </form>
-  <input class="submit-sign guest-account" type="submit" name="some_name" value="Guest Account">
-  <a href="/auth/instagram" class="edit-user"><i class="fa fa-instagram"></i> Instagram Login</a>
+  <input class="submit-sign edit-user guest-account" type="submit" name="some_name" value="Guest Account">
+  <a href="/auth/instagram" class="submit-sign edit-user"><i class="fa fa-instagram"></i> Instagram Login</a>
 </article>

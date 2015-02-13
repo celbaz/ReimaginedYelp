@@ -81,11 +81,12 @@
 
 .modal-content h1 {
   font-size: 48px;
+  margin: -25px 0px 10px -25px;
 }
 
-.modal-content input {
-  padding: 5px;
-}
+// .modal-content input {
+//   padding: 10px 20px;
+// }
 
 
 input[type="submit"] {
@@ -110,16 +111,46 @@ input[type="submit"] {
 .submit-sign {
   position: relative;
   display: inline-block;
-  padding: 10px 20px;
-  font-weight: bold;
-  background: #0c0;
-  color: white;
-  box-shadow: 0 3px 0 0 #070;
+  -webkit-appearance: none;
+  margin: 10px 30px;
+  padding: 10px 100px;
+  background: #3498db;
+  font-size: 16px;
+  border-radius: 3px;
+  color: #eee;
+  border: 2px solid #3498db;
+  transition: .7s;
+  box-shadow: 0 3px 0 0 #2980b9;
   border-radius: 5px;
 }
 
 .submit-sign:hover {
   top: 3px;
   box-shadow: none;
-  background: #0a0;
+  // background: #0a0;
+}
+
+
+.modal-sign-form input[type="email"],
+.modal-sign-form input[type="password"] {
+  float: right;
+  padding: 10px 20px;
+}
+
+.modal-sign-form input[type="email"] {
+  margin-bottom: 5px;
+}
+.sign-upersons {
+  padding: 10px 151px;
+  margin: 17px 0px 7px 2px;
+}
+
+.sign-in-er {
+  padding: 10px 171px;
+  margin: 17px 0px 7px 2px;
+}
+
+#sign-up {
+  margin-right: 22px;
+  margin-left: 13px;
 }
