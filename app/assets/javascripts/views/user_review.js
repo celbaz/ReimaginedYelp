@@ -7,6 +7,12 @@ YelpClone.Views.UserReviews = Backbone.View.extend({
     YelpClone.UserMap = this;
   },
 
+  events: {
+    'click .delete-rest': "deleteReview",
+    'click .res-edit': "SetForm",
+    'click .save-review': "SaveReview"
+  },
+
   render: function () {
     var reviews = this.model.reviews();
     var renderedContent = this.template({
@@ -17,6 +23,20 @@ YelpClone.Views.UserReviews = Backbone.View.extend({
 
     this.$el.html(renderedContent);
     return this;
+  },
+
+  deleteReview: function (event) {
+    event.preventDefault();
+    var data = $(event.currentTarget).attr("data-id");
+    console.log(data);
+    var review = new YelpClone.Models.Review({id: data});
+    var that = this;
+    review.fetch({
+      success: function () {
+        review.destroy();
+        that.model.fetch();
+      }
+    });
   },
 
   createMap: function () {

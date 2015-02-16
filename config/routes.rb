@@ -3,7 +3,7 @@
   resource :session, only: [:create, :destroy, :new]
 
   get "auth/:provider/callback" => "api/sessions#omniauth"
-  
+
   namespace :api, defaults: {:format => :json}  do
     resource :session, only: [:create, :destroy, :show]
     resources :users

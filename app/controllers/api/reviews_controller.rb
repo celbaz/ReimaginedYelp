@@ -4,8 +4,6 @@ module Api
 
     def create
       @review = Review.new(review_params)
-      puts "Hello"
-      puts params
       if @review.save
         render :json => @review
       else
@@ -13,10 +11,26 @@ module Api
       end
     end
 
+    def show
+      @review = Review.find_by_id(params[:id])
+      render :json => @review
+    end
+
+
+    def update
+      @review = Review.find_by_id(params[:id])
+      
+      if @place.update(review_params)
+        render json: @place
+      else
+        render json: @place.errors.full_messages, , status: :unprocessable_entity
+      end
+    end
 
     def destroy
       @review = Review.find_by_id(params[:id])
       @review.destroy
+      render :json => { success: "Review Deleted" }, status: "200"
     end
 
     private
