@@ -1,3 +1,31 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#reviews-map {
+  width: 100%;
+  height: 300px;
+}
+
+.map-title {
+  color: wheat;
+  background: #7F8C90;
+}
+
+.map-title h2 {
+  float: left;
+  margin-left: 100px;
+  margin: 15px 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.map-title h5 {
+  float: right;
+  margin: 15px 50px;
+  font-size: 20px;
+}
+
+
+.manage-rest p:last-child {
+    text-align: center;
+}

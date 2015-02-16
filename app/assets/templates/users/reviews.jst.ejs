@@ -1,6 +1,35 @@
-<% reviews.each( function(review){ %>
-    <% for( i in review.attributes){ %>
-      <h2><%= i %> : <%= review.escape(i) %></h2>
+<style media="screen">
+.manage-rest {
+  height: 80px;
+  }
+</style>
+<div id='reviews-map'></div>
+<div class="map-title group">
+  <h2>Your Travel Log</h2>
+  <h5>You have written <%= reviews.length %> Reviews</h5>
+</div>
 
+<% reviews.each( function(review){ %>
+    <div class="rest-wrapper group">
+      <div class="manage-rest">
+        <p> Title : <%=  review.escape("title")  %></p>
+        <p> Rating : <%=  review.escape("rating")  %></p>
+        <p> Body : <%=  review.escape("body")  %></p>
+        <p> @ <%= review.escape("restaurant")  %></p>
+      </div>
+
+      <% if (userId === YelpClone.currentUser.id) { %>
+
+      <button class="rest-edit edit-clicked" data-id="<%= review.escape("id") %>" name="edit">Edit</button>
+      <button class="delete-rest rest-edit" data-id="<%= review.escape("id") %>"
+        name="Delete">Delete</button>
       <% } %>
+
+  </div>
   <% }); %>
+
+  <script>
+    $('document').ready( function () {
+      YelpClone.UserMap.createMap();
+    });
+  </script>
