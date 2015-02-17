@@ -19,11 +19,10 @@ module Api
 
     def update
       @review = Review.find_by_id(params[:id])
-      
-      if @place.update(review_params)
-        render json: @place
+      if @review.update(review_params)
+        render json: @review
       else
-        render json: @place.errors.full_messages, , status: :unprocessable_entity
+        render json: @review.errors.full_messages, status: :unprocessable_entity
       end
     end
 

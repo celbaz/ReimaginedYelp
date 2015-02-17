@@ -1,0 +1,11 @@
+  <div class="manage-rest">
+    <p> Title : <%=  review.escape("title")  %></p>
+    <p> Rating : <%=  review.escape("rating")  %></p>
+    <p> Body : <%=  review.escape("body")  %></p>
+    <p> @ <%= review.escape("restaurant")  %></p>
+  </div>
+
+
+  <button class="rest-edit edit-clicked" data-id="<%= review.escape("id") %>" name="edit">Edit</button>
+  <button class="delete-rest rest-edit" data-id="<%= review.escape("id") %>"
+    name="Delete">Delete</button>

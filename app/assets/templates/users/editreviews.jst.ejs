@@ -1,0 +1,19 @@
+<div class="manage-rest">
+  <form class="edit-form<%= review.escape("id") %>">
+    <label for="Title" class="group">Title :
+      <input type="text" name="review[title]" value="<%=  review.escape("title")  %>">
+    </label>
+    <label for="Rating" class="group">Rating :
+      <input type="text" name="review[rating]" value="<%=  review.escape("rating")  %>">
+    </label>
+    <label for="Title" class="group">Body :
+      <input type="text" name="review[body]" value="<%=  review.escape("body") %>">
+    </label>
+  </form>
+  <p> @ <%= review.escape("restaurant")  %></p>
+</div>
+
+<button class="rest-edit edit-save-clicked" data-id="<%= review.escape("id") %>"
+   name="edit">Save</button>
+<button class="cancel-edit rest-edit" data-id="<%= review.escape("id") %>"
+  name="Delete">Cancel</button>

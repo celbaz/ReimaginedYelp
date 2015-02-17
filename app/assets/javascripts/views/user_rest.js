@@ -56,7 +56,7 @@ YelpClone.Views.UserRestaurants = Backbone.View.extend({
 
   saveRest: function () {
     event.preventDefault();
-    var formData = $(".user-content").serializeJSON().place, that = this;
+    var formData = $(".user-content").serializeJSON().place;
     formData.cuisine = formData.cuisine.toUpperCase();
     var data = $(event.target).attr("data-id"), that = this;
     if (data === "") {
